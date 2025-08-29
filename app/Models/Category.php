@@ -12,7 +12,7 @@ class Category extends Model
     use HasTranslations;
     
 
-    public $translatable = ['name'];
+    protected $translatable = ['name'];
 
     protected $fillable = ['name', 'slug', 'parent_id'];
 

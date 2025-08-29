@@ -1,55 +1,51 @@
 <?php
 
-namespace App\Filament\Resources\Properties;
+namespace App\Filament\Resources\Units;
 
-use App\Filament\Resources\Properties\Pages\CreateProperty;
-use App\Filament\Resources\Properties\Pages\EditProperty;
-use App\Filament\Resources\Properties\Pages\ListProperties;
-use App\Filament\Resources\Properties\Schemas\PropertyForm;
-use App\Filament\Resources\Properties\Tables\PropertiesTable;
-use App\Models\Property;
+use App\Filament\Resources\Units\Pages\CreateUnit;
+use App\Filament\Resources\Units\Pages\EditUnit;
+use App\Filament\Resources\Units\Pages\ListUnits;
+use App\Filament\Resources\Units\Schemas\UnitForm;
+use App\Filament\Resources\Units\Tables\UnitsTable;
+use App\Models\Unit;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 
-class PropertyResource extends Resource
+class UnitResource extends Resource
 {
-    protected static ?string $model = Property::class;
+    protected static ?string $model = Unit::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
     {
-        return PropertyForm::configure($schema);
+        return UnitForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return PropertiesTable::configure($table);
+        return UnitsTable::configure($table);
     }
-
-
-
 
 
     public static function getNavigationIcon(): string
     {
-        return 'heroicon-o-cube-transparent'; 
+        return 'heroicon-o-banknotes'; 
     }
 
 
     public static function getNavigationLabel(): string
     {
-        return 'Ozellik yarat';
+        return 'Deger yarat';
     }
 
     public static function getNavigationGroup(): string
     {
         return 'Urun Ozellikeri';
     }
-
 
 
     public static function getRelations(): array
@@ -62,9 +58,9 @@ class PropertyResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListProperties::route('/'),
-            'create' => CreateProperty::route('/create'),
-            'edit' => EditProperty::route('/{record}/edit'),
+            'index' => ListUnits::route('/'),
+            'create' => CreateUnit::route('/create'),
+            'edit' => EditUnit::route('/{record}/edit'),
         ];
     }
 }
