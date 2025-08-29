@@ -1,0 +1,5 @@
+Bundan sonra her değişiklikte:
+
+git add .
+git commit -m "açıklama"
+git push
