@@ -11,33 +11,10 @@ class StatementForm
 {
     public static function configure(Schema $schema): Schema
     {
-        // return $schema
-        //     ->components([
-        //         TextInput::make('name.en')
-        //             ->required(),
-        //     ]);
-
         return $schema
-            ->schema([
-                Tabs::make('language_tabs')
-                    ->tabs([
-                        Tab::make('En')
-                            ->schema([
-                                TextInput::make('name.en')
-                                    ->label('Statement Name (En)')
-                                    ->required()
-                                    ->maxLength(255),
-                            ]),
-                        Tab::make('Tr')
-                            ->schema([
-                                TextInput::make('name.tr')
-                                    ->label('Statement ismi (Tr)')
-                                    ->required()
-                                    ->maxLength(255)
-                            ]),
-                        ]),
-                
-                
+            ->components([
+                TextInput::make('name')
+                    ->required(),
             ]);
     }
 }

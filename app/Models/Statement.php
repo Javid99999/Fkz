@@ -7,13 +7,24 @@ use Spatie\Translatable\HasTranslations;
 
 class Statement extends Model
 {
-    use HasTranslations;
-
 
     protected $fillable = ['name'];
 
-    protected $translatable = ['name'];
 
 
-    protected $casts = ['name' => 'array'];
+    public function productStatements()
+    {
+        return $this->hasMany(ProductStatement::class);
+    }
+
+
+    public function products()
+    {
+        return $this->belongsToMany(
+            Product::class, 
+            'product_statement', 
+            'statement_id',
+             'product_id')
+                ->withPivot('id'); // product_statement tablosundaki id-yi cekmek ucun
+    }
 }
