@@ -34,8 +34,42 @@ class Product extends Model
 
 
 
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('detailfoto')
+            ->useDisk('public');
+
+        $this->addMediaCollection('vitrin')
+            ->singleFile()
+            ->useDisk('public');
+    }
 
 
+
+
+
+
+
+
+
+    public function productPropertyValuess()
+    {
+        return $this->hasMany(ProductPropertyValue::class);
+    }
+
+
+    // Dur hele
+    public function productPropertyValues()
+    {
+        return $this->belongsToMany(
+            Property::class,
+            'product_property_values',
+            'product_id',
+            'property_id',
+        )
+        ->using(ProductPropertyValue::class)
+        ->withPivot('value', 'numeric', 'value_parse_type','unit_id');
+    }
 
 
     public function statements()
@@ -48,6 +82,16 @@ class Product extends Model
                 ->withPivot('id'); // product_statement tablosundaki id-yi cekmek ucun
     }
 
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 
 
 

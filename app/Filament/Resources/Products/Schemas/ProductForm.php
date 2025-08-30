@@ -2,10 +2,14 @@
 
 namespace App\Filament\Resources\Products\Schemas;
 
+use App\Enum\ValueParseType;
 use App\Models\Category;
 use App\Models\Classification;
 use App\Models\Country;
+use App\Models\Property;
 use App\Models\RiskLevel;
+use App\Models\Unit;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -82,7 +86,6 @@ class ProductForm
                     ->relationship('productClassifications', 'name', function ($query) {
                         return $query->whereNotNull('name');
                     })
-                    ->multiple()
                     ->preload()
                     ->pivotData(function ($get) {
                         return [
@@ -109,9 +112,73 @@ class ProductForm
                     ->reactive(),
 
                 
+                Select::make('statements')
+                    ->label('Statement ekle')
+                    ->relationship('statements', 'name', function ($query) {
+                        return $query->whereNotNull('name');
+                    })
+                    ->multiple()
+                    ->preload()
+                    ->required(),
 
 
+                Repeater::make('properties')
+                    ->label('Product Properties')
+                    ->relationship('productPropertyValuess')
+                    ->schema([
+                        Select::make('property_id')
+                            ->options(function (callable $get){
+                                $categoryId = $get('../../category_id');
 
+                                if(!$categoryId) return [];
+
+                                return Property::whereRelation('categories', 'category_id', $categoryId)
+                                    ->pluck('name', 'id')
+                                    ->toArray();
+                            })
+                            ->reactive()
+                            ->required(),
+                        Select::make('value_parse_type')
+                            ->label('Value Type')
+                            ->options(collect(ValueParseType::cases())
+                                ->mapWithKeys(fn($case) => [$case->value => $case->name])
+                            )
+                            ->reactive()
+                            ->afterStateHydrated(function ($component, $state, $record, $set){
+                                $set('text_visible', $state === 'text');
+                                $set('numeric_visible', $state === 'numeric');
+                            })
+                            ->afterStateUpdated(function ($state, $set) {
+                                $set('text_visible', $state === 'text');
+                                $set('numeric_visible', $state === 'numeric');
+                                
+                                if ($state === 'text') {
+                                        $set('numeric', null);
+                                    }
+                                    // Eğer numeric seçildiyse text alanını null yap
+                                    if ($state === 'numeric') {
+                                        $set('value', null);
+                                    }
+                            })
+                            ->required(),
+
+                            TextInput::make('value.en')
+                            ->label('Text Value')
+                            ->visible(fn($get) => $get('text_visible'))
+                            ->required(fn($get) => $get('text_visible')),
+
+                            TextInput::make('numeric')
+                                ->label('Numeric Value')
+                                ->visible(fn($get) => $get('numeric_visible'))
+                                ->required(fn($get) => $get('numeric_visible')),
+
+
+                            Select::make('unit_id')
+                                ->label('Unit')
+                                ->options(Unit::all()->pluck('unit', 'id'))
+                                ->nullable(),
+                    ])
+                    
 
 
 

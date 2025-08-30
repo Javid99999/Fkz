@@ -23,8 +23,18 @@ class Property extends Model
     ];
 
 
+    public function products()
+    {
+        return $this->belongsToMany(
+                Product::class, 
+                'product_property_values', 
+                'property_id', 
+                'product_id'
+                )
+                ->withPivot('value', 'numeric', 'value_parse_type', 'unit_id');
+    }
 
-
+    
 
     public function categories()
     {
