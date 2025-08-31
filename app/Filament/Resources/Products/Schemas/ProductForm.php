@@ -11,6 +11,7 @@ use App\Models\RiskLevel;
 use App\Models\Unit;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Tabs;
@@ -58,6 +59,25 @@ class ProductForm
                             ->schema([
                                 Textarea::make('description.tr')
                                     ->label('Aciklama')
+                                    ->rows(5)
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                        ]),
+                Tabs::make('language_tabs')
+                    ->tabs([
+                        Tab::make('En')
+                            ->schema([
+                                Textarea::make('packaging.en')
+                                    ->label('Packaging')
+                                    ->rows(5)
+                                    ->required()
+                                    ->columnSpanFull(),
+                            ]),
+                        Tab::make('Tr')
+                            ->schema([
+                                Textarea::make('packaging.tr')
+                                    ->label('Paketleme')
                                     ->rows(5)
                                     ->required()
                                     ->columnSpanFull(),
@@ -178,7 +198,28 @@ class ProductForm
                                 ->options(Unit::all()->pluck('unit', 'id'))
                                 ->nullable(),
                     ])
+                    ->defaultItems(1) // Varsayılan olarak 1 item ile başlatır
+                    ->grid(4),
+
+
+                    SpatieMediaLibraryFileUpload::make('vitrin_image')
+                            ->label('Vitrin Resmi')
+                            ->collection('vitrin') // tekil olsa bile gerekli
+                            ->preserveFilenames()
+                            ->image()
+                            ->disk('public')
+                            ->visibility('public')
+                            ->default(fn ($record) => $record?->getFirstMediaUrl('vitrin', 'thumb')),
                     
+                    SpatieMediaLibraryFileUpload::make('detailfoto')
+                            ->label('Detay Fotoğraflar')
+                            ->collection('detailfoto') // bu grup adıyla media kaydedilir
+                            ->preserveFilenames()
+                            ->image()
+                            ->multiple() // çoklu yükleme için şart
+                            ->disk('public')
+                            ->visibility('public')
+                            ->default(fn ($record) => $record?->getMedia('detailfoto')->map(fn ($media) => $media->getUrl('detail'))->toArray())
 
 
 
@@ -188,64 +229,9 @@ class ProductForm
 
 
 
-
-
-
-                // Select::make('productClassifications')
-                //     ->label('Classification')
-                //     ->options(Classification::all()->pluck('name', 'id')) // çok dil desteği için JSON’dan EN alıyoruz
-                //      ->afterStateHydrated(function ($component, $state, $record) {
-                //         if ($record) {
-                //             // Pivot üzerinden ilk safety kaydını alıyoruz
-                //             $prclass = $record->productClassifications()->first();
-                //             if ($prclass) {
-                //                 $component->state($prclass->id);
-                //             }
-                //         }
-                //     })
-                //     ->relationship('productClassifications', 'name', function ($query) {
-                //         return $query->whereNotNull('name');
-                //     })
-                //     ->required(),
-
-
-
-                // Select::make('risk_level_id')
-                //     ->label('Risk Level')
-                //     ->options(RiskLevel::all()->pluck('risk.en', 'id'))
-                //     ->afterStateHydrated(function ($component, $state, $record) {
-                //         if ($record) {
-                //             // Pivot üzerinden ilk safety kaydını alıyoruz
-                //             $prclass = $record->productClassifications()->first();
-                //             if ($prclass) {
-                //                 $component->state($prclass->risk_level_id);
-                //             }
-                //         }
-                //     })
-                //     ->required(),
 
 
             ]);
     }
 }
 
-
-
-
-// TextInput::make('name')
-//                     ->required(),
-
-
-
-                    
-//                 TextInput::make('cas_number')
-//                     ->required(),
-//                 TextInput::make('description')
-//                     ->required(),
-//                 TextInput::make('packaging'),
-//                 TextInput::make('country_id')
-//                     ->required()
-//                     ->numeric(),
-//                 TextInput::make('category_id')
-//                     ->required()
-//                     ->numeric(),

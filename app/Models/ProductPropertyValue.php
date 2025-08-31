@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enum\ValueParseType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 use Spatie\Translatable\HasTranslations;
 
 class ProductPropertyValue extends Model
@@ -32,7 +33,7 @@ class ProductPropertyValue extends Model
 
     public function unit()
     {
-        return $this->belongsTo(Unit::class);
+        return $this->belongsTo(Unit::class, 'unit_id');
     }
 
     

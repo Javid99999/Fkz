@@ -41,7 +41,10 @@ class Property extends Model
         return $this->belongsToMany(Category::class, 'category_properties');
     }
 
-
+    public function unit()
+    {
+        return $this->belongsTo(Unit::class);
+    }
 
     // Getterler
     public function getNameEnAttribute()

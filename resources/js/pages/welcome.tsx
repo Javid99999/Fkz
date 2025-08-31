@@ -2,8 +2,9 @@
 
 
 
-export default function Welcome() {
+export default function Welcome({products}) {
 
+    console.log(products);
     return (
         <>
         Selam
