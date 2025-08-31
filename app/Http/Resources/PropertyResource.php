@@ -21,7 +21,7 @@ class PropertyResource extends JsonResource
             'value' => $this->pivot->value,
             'numeric' => $this->pivot->numeric,
             'type' => $this->property_type,
-            'unit' => new UnitResource($this->unit)
+            'unit' => ['id' => $this->unit_id, 'unit' => json_decode($this->unit_name)]
         ];
     }
 }
