@@ -346,6 +346,9 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ id = "1" }) => {
 
           {/* Card burda bitir */}
 
+
+          {/* Buton request for loi */}
+
           <Dialog open={isRFQOpen} onOpenChange={setIsRFQOpen}>
             <DialogTrigger asChild>
               <Button className="w-full mb-4">Request Quotation</Button>
@@ -397,6 +400,9 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ id = "1" }) => {
           </Card>
         </div>
 
+
+
+
         {/* Right Column - Tabs with Detailed Information */}
         <div className="md:col-span-2">
           <Card>
@@ -406,6 +412,7 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ id = "1" }) => {
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="properties">
+
                 <TabsList className="grid grid-cols-5 mb-6">
                   <TabsTrigger
                     value="properties"
@@ -439,6 +446,10 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ id = "1" }) => {
                   </TabsTrigger>
                 </TabsList>
 
+
+
+                  
+                
                 <TabsContent value="properties">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {product.properties.map((prop, index) => (
@@ -744,7 +755,12 @@ const ProductDetails: React.FC<ProductDetailProps> = ({ id = "1" }) => {
                     ))}
                   </div>
                 </TabsContent>
+
+
               </Tabs>
+
+
+
             </CardContent>
             <CardFooter className="flex justify-between border-t pt-6">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

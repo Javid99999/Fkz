@@ -101,9 +101,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                     <p>Available in: {product.packaging as any}</p>
                 </div>
 
-                <div className="mt-4 flex items-center justify-end">
+                <div className="mt-2 flex items-center justify-end">
                     <Link href={route('products.show', product.id)}>
-                        <Button size="sm">View Details</Button>
+                        <Button className='mb-4' size="sm">View Details</Button>
                     </Link>
                 </div>
             </CardContent>

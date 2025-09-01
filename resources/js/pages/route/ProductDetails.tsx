@@ -1,12 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AppNavbarLayout from "@/layouts/app/app-navbar-layout";
-import { Productt, ProductType } from "@/types";
+import { LocalizedText, Productt, ProductType } from "@/types";
 import { Head, router, usePage } from "@inertiajs/react";
-import { ChevronLeft } from "lucide-react";
-import React from "react";
+// import { TabsList, TabsTrigger } from "@radix-ui/react-tabs";
+import { Beaker, Car, ChevronLeft, FileText, Globe, ShieldAlert, Truck } from "lucide-react";
+import React, { useContext } from "react";
 
 
 interface PageProps {
@@ -18,6 +20,7 @@ interface PageProps {
 }
 
 
+
 const ProductDetails: React.FC = () => {
 
   const { product } = usePage<PageProps>().props;
@@ -25,7 +28,7 @@ const ProductDetails: React.FC = () => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
-
+  const { currentLang } = usePage().props;
   const prod: ProductType = product.data;
 
   React.useEffect(() => {
@@ -42,6 +45,11 @@ const ProductDetails: React.FC = () => {
     }, [api]);
 
 
+
+    function getLocalizedText(text: LocalizedText) {
+      return text?.[currentLang as keyof LocalizedText] ?? '';
+    }
+
   return (
     
 
@@ -55,7 +63,7 @@ const ProductDetails: React.FC = () => {
 
     <Button
         variant="ghost"
-        className="mb-6 flex items-center gap-1 mt-6"
+        className="flex items-center gap-1 mt-6"
         onClick={() => router.visit('/products')}
 
       >
@@ -63,7 +71,7 @@ const ProductDetails: React.FC = () => {
     </Button>
 
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-8">
 
       <div className="md:col-span-1">
         
@@ -121,7 +129,7 @@ const ProductDetails: React.FC = () => {
                 {prod.property.map((prop, index) => (
                   <div key={index}>
                     <p className="font-medium text-lg">{prop.name as any}:</p>
-                    <p className="text-sm text-muted-foreground">{prop.numeric}  {prop.unit?.unit.en}</p>
+                    <p className="text-sm text-muted-foreground">{prop.numeric ?? prop.value}  {prop.unit?.unit.en}</p>
                   </div>
                 ))}
                 {/* <div>
@@ -152,10 +160,93 @@ const ProductDetails: React.FC = () => {
 
         
 
+      </div>
+
+
+      {/* Right Column - Tabs with Detailed Information */}
+      <div className="md:col-span-2">
+
+        <Card>
+
+          {/* card baslik */}
+          <CardHeader>
+            <CardTitle className="mt-6 text-xl">{prod.name as any}</CardTitle>
+            <CardDescription className="">{prod.description as any}</CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            
+            <Tabs defaultValue="properties">
+              
+              <TabsList className="grid grid-cols-5 mb-6 bg-cyan-300/10 h-12 border rounded-xl">
+                <TabsTrigger
+                    value="properties"
+                    className="flex items-center gap-2"
+                  >
+                    <Beaker className="h-4 w-4" /> Properties
+                </TabsTrigger>
+
+                <TabsTrigger
+                    value="safety"
+                    className="flex items-center gap-2"
+                  >
+                    <ShieldAlert className="h-4 w-4" /> Safety
+                </TabsTrigger>
+
+                <TabsTrigger
+                    value="delivery"
+                    className="flex items-center gap-2"
+                  >
+                  <Globe className="h-4 w-4" /> Delivery
+                </TabsTrigger>
+
+                <TabsTrigger
+                    value="shipping"
+                    className="flex items-center gap-2"
+                  >
+                  <Truck className="h-4 w-4" /> Shipping
+                </TabsTrigger>
+                <TabsTrigger
+                  value="documents"
+                  className="flex items-center gap-2"
+                >
+                  <FileText className="h-4 w-4" /> Documents
+                </TabsTrigger>
+
+              </TabsList>
+
+              <TabsContent value="properties">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {prod.property.map((prop, index) => (
+                      <div key={index} className="p-4 border rounded-md">
+                        <p className="font-medium text-sm text-muted-foreground">
+                          {prop.name as any}
+                        </p>
+                        <p className="font-semibold">{prop.numeric ?? prop.value} - {getLocalizedText(prop.unit?.unit)}</p>
+                      </div>
+                    ))}
+                  </div>
+              </TabsContent>
+
+
+
+
+            </Tabs>
+
+
+          </CardContent>
+
+
+
+
+        </Card>
 
 
 
       </div>
+      
+
+
 
     </div>
 
