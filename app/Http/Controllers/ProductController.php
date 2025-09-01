@@ -73,7 +73,7 @@ class ProductController extends Controller
     public function show($product)
     {
 
-        $query = Product::with(['media', 'country', 'category', 'productClassification', 'productPropertyValues' => function($q) {
+        $query = Product::with(['media', 'category','country', 'productStatements', 'productClassification', 'productPropertyValues' => function($q) {
         $q->leftJoin('units', 'units.id', '=', 'product_property_values.unit_id')
           ->select(
                 'properties.*',

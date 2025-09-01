@@ -1,9 +1,15 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { BasicProductInfo } from '@/types';
 import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
 
-export const FeatuedProductSection = () => {
+interface Props {
+  products: BasicProductInfo[];
+}
+
+
+export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
     const featuredProducts = [
         {
           id: 1,
@@ -47,26 +53,26 @@ export const FeatuedProductSection = () => {
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {featuredProducts.map((product) => (
+                        {products?.map((product) => (
                             <Card key={product.id} className="overflow-hidden p-0">
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
-                                        src={product.image}
-                                        alt={product.name}
+                                        src={product.img_url}
+                                        alt={product.name as any}
                                         className="w-full h-full object-cover transition-transform hover:scale-105"
                                     />
                                 </div>
                                 <CardContent className="p-4 sm:p-6">
                                     <div className="flex flex-col gap-2">
                                         <span className="text-sm text-primary font-medium">
-                                            {product.category}
+                                            {product.category.name as any}
                                         </span>
-                                        <h3 className="text-xl font-semibold">{product.name}</h3>
+                                        <h3 className="text-xl font-semibold">{product.name as any}</h3>
                                         <p className="text-muted-foreground">
-                                            {product.description}
+                                            {product.description as any}
                                         </p>
                                         <Button variant="outline" className="mt-4 w-full sm:w-auto" asChild>
-                                            <Link href={`/products/${product.id}`}>View Details</Link>
+                                            <Link href={route('products.show', product.id)}>View Details</Link>
                                         </Button>
                                     </div>
                                 </CardContent>

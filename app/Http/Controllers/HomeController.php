@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\FuturedProductResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Models\Statement;
@@ -10,6 +11,25 @@ use Inertia\Inertia;
 
 class HomeController extends Controller
 {
+
+
+
+    public function home()
+    {
+        $query = Product::with('media', 'category')
+                   ->inRandomOrder()
+                   ->take(5)
+                   ->get();
+
+        $products = FuturedProductResource::collection($query)->resolve();
+
+        return Inertia::render('welcome',['products' => $products]);
+    }
+
+
+
+
+
     public function index()
     {
 

@@ -115,11 +115,11 @@ export interface Productt {
 
 }
 
-export interface Statemeent
+export interface Statemeents
 {
   id: number;
   name:string | null;
-  securecode: Securecode;
+  securecode: Securecode[];
 }
 
 
@@ -127,10 +127,11 @@ export interface Securecode
 {
   id: number;
   code: string | null;
+  description: LocalizedText;
 }
 export interface Classification
 {
-    id: number;
+    // id: number;
     name: string;
 }
 
@@ -148,10 +149,10 @@ export interface ProductType {
     description: LocalizedText;
     packaging: LocalizedText;
     country: Country | null;
-    classification: Classification;
-    statement: Statemeent;
+    classification: Classification[];
+    statements: Statemeents[];
     property: ProductPropertyValue[];
-    image_url: string[];
+    img_url: string[];
     lang: keyof LocalizedText;
 }
 
@@ -165,6 +166,15 @@ export interface PageProps {
   // başka global prop'lar varsa buraya eklenebilir
 }
 
+
+export interface BasicProductInfo
+{
+  id:number,
+  name:LocalizedText;
+  description:LocalizedText;
+  category: Category;
+  img_url: string;
+}
 
 
 export interface ProductPageProps {

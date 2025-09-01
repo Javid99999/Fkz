@@ -10,6 +10,7 @@ class Statement extends Model
 
     protected $fillable = ['name'];
 
+    
 
     public function securee()
     {

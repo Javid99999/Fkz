@@ -12,6 +12,10 @@ class Securecode extends Model
 
 
 
+    protected $casts = [
+        'description' => 'array'
+    ];
+
 
 
 

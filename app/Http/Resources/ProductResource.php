@@ -25,7 +25,7 @@ class ProductResource extends JsonResource
             'statements' => StatementResource::collection($this->whenLoaded('productStatements')),
             'property' => PropertyResource::collection($this->whenLoaded('productPropertyValues')),
             // 'image_vitrin_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
-            'image_url'=> $this->imageUrls('detailfoto', 'detail'),
+            'img_url'=> $this->imageUrls('detailfoto', 'detail'),
         ];
     }
 }

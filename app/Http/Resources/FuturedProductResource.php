@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SecureCodeResource extends JsonResource
+class FuturedProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,8 +16,10 @@ class SecureCodeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'code' => $this->code,
+            'name' => $this->name,
             'description' => $this->description,
+            'img_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
+            'category' => new TagCategoryResource($this->whenLoaded('category'))
         ];
     }
 }

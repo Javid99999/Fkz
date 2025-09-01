@@ -6,9 +6,10 @@ import { CompanyValueSection } from "./components/CompanyValueSection";
 import { CompanyOverview } from "./components/CompanyOverview";
 import { CallAction } from "./components/CallAction";
 import { FooterSection } from "./components/FooterSection";
+import { BasicProductInfo } from "@/types";
 
 
-const Home = () => {
+const Home = ({ products }: { products: BasicProductInfo[] }) => {
   return (
     <div className="min-h-screen bg-background">
         <AppNavbarLayout>
@@ -17,7 +18,7 @@ const Home = () => {
 
         <HeroSection />
 
-        <FeatuedProductSection />
+        <FeatuedProductSection products={products} />
 
         <CompanyValueSection />
 
