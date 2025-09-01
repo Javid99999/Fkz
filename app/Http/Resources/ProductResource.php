@@ -20,10 +20,12 @@ class ProductResource extends JsonResource
             'cas_number' => $this['cas_number'] ?? $this->cas_number,
             'description' => $this['description'] ?? $this->description,
             'packaging' => $this['packaging'] ?? $this->packaging,
+            'country' => new CountryResource($this->whenLoaded('country')),
+            'classification' => ClassificationResource::collection($this->whenLoaded('productClassification')),
             'statements' => StatementResource::collection($this->whenLoaded('productStatements')),
             'property' => PropertyResource::collection($this->whenLoaded('productPropertyValues')),
-            'image_vitrin_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
-            'image_detail_url'=> $this->imageUrls('detailfoto', 'detail'),
+            // 'image_vitrin_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
+            'image_url'=> $this->imageUrls('detailfoto', 'detail'),
         ];
     }
 }

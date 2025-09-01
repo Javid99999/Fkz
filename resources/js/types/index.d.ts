@@ -7,6 +7,7 @@ export type LangCode = 'en' | 'tr';
 export type LocalizedText = {
   en: string;
   tr: string;
+  [key: string]: string | undefined;
 };
 
 
@@ -114,20 +115,44 @@ export interface Productt {
 
 }
 
+export interface Statemeent
+{
+  id: number;
+  name:string | null;
+  securecode: Securecode;
+}
+
+
+export interface Securecode
+{
+  id: number;
+  code: string | null;
+}
+export interface Classification
+{
+    id: number;
+    name: string;
+}
+
+export interface Country
+{
+  id: number;
+  name: string;
+  iso_code: string;
+}
+
 export interface ProductType {
     id: number;
     name: LocalizedText;
-    cas_num: string;
+    cas_number: string;
     description: LocalizedText;
     packaging: LocalizedText;
     country: Country | null;
-    category_id: Category | null;
-    image_url: string | null;
+    classification: Classification;
+    statement: Statemeent;
+    property: ProductPropertyValue[];
+    image_url: string[];
     lang: keyof LocalizedText;
-    // property: ProductPropertyValue
-    // catag: TagCategory;
-    
-
 }
 
 

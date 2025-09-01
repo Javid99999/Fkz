@@ -143,6 +143,16 @@ class Product extends Model implements HasMedia
         });
     }
 
+    public function productClassification()
+    {
+        return $this->belongsToMany(
+            Classification::class, 
+            'product_classifications', 
+            'product_id', 
+            'classification_id'
+        );
+    }
+
 
 
 
