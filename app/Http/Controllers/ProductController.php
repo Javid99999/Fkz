@@ -2,17 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProductResource;
+use App\Http\Resources\ProductShowResource;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $categoryId = $request->input('category_id');
+
+        $query = Product::with(['media', 'country', 'category', 'productPropertyValues' => function($q) {
+        $q->leftJoin('units', 'units.id', '=', 'product_property_values.unit_id')
+          ->select(
+                'properties.*',
+                'product_property_values.value as pivot_value',
+                'product_property_values.numeric as pivot_numeric',
+                'product_property_values.value_parse_type as pivot_value_parse_type',
+                'product_property_values.unit_id as pivot_unit_id',
+                'units.id as unit_id',
+                'units.unit as unit_name' // burada units.unit kullanıyoruz
+            );
+        },]);
+
+        if ($categoryId) {
+            $query->where('category_id', $categoryId);
+        }
+
+        $products = ProductShowResource::collection($query->paginate(3));
+
+        $categories = Category::with(['children' => fn($q) => $q->withCount('products')])
+            ->whereNull('parent_id')
+            ->get();
+
+
+
+
+        return Inertia::render('route/Product',[
+                'products' => $products,
+                'category' => $categories,
+                'selectedCategory' => $categoryId
+            ]);
     }
 
     /**
@@ -36,7 +72,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('welcome');
     }
 
     /**
