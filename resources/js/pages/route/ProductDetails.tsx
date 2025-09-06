@@ -28,7 +28,7 @@ const ProductDetails: React.FC = () => {
 
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [, setCount] = React.useState(0);
   const { currentLang } = usePage().props;
   const prod: ProductType = product.data;
 

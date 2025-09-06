@@ -38,11 +38,11 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                 <CardContent className="p-4 sm:p-6">
                                     <div className="flex flex-col gap-2">
                                         <span className="text-sm text-primary font-medium">
-                                            {product.category.name as any}
+                                            {product.category.name as unknown as string}
                                         </span>
                                         <h3 className="text-xl font-semibold">{product.name as unknown as string}</h3>
                                         <p className="text-muted-foreground">
-                                            {product.description as any}
+                                            {product.description as unknown as string}
                                         </p>
                                         <Button variant="outline" className="mt-4 w-full sm:w-auto" asChild>
                                             <Link href={route('products.show', product.id)}>View Details</Link>
