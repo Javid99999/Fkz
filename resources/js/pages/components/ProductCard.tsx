@@ -62,20 +62,20 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="relative h-48 bg-muted">
             <img
                 src={imageUrl}
-                alt={product.name as any}
+                alt={product.name as unknown as string}
                 className="w-full h-full object-cover"
             />
         </div>
             <CardContent className="flex-1 flex flex-col">
                 <div className="flex-1">
                     <h3 className="font-semibold text-lg">
-                    {product.name as any}
+                    {product.name as unknown as string}
                     </h3>
                     <div className="mt-2 mb-4 ml-1 text-sm text-muted flex space-x-2">
                         <h2 className='text-primary font-bold text-sm'>CAS: {product.cas_num}</h2>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="outline">{product.catag.name as any}</Badge>
+                        <Badge variant="outline">{product.catag.name as unknown as string}</Badge>
                         
                         {/* <Badge variant="outline">{product.form}</Badge> */}
                         {/* <Badge variant="outline">{product.purity}</Badge> */}
@@ -98,7 +98,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 {/* Packaging her zaman en altta */}
                 <div className="m-auto ml-2 flex text-sm  text-muted-foreground space-x-2">
                     <h2 className='text-primary font-bold font-xs'>Packaging:</h2>
-                    <p>Available in: {product.packaging as any}</p>
+                    <p>Available in: {product.packaging as unknown as string}</p>
                 </div>
 
                 <div className="mt-2 flex items-center justify-end">

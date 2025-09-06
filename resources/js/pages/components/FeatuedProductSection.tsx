@@ -31,7 +31,7 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
                                         src={product.img_url}
-                                        alt={product.name as any}
+                                        alt={product.name as unknown as string}
                                         className="w-full h-full object-cover transition-transform hover:scale-105"
                                     />
                                 </div>
@@ -40,7 +40,7 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                         <span className="text-sm text-primary font-medium">
                                             {product.category.name as any}
                                         </span>
-                                        <h3 className="text-xl font-semibold">{product.name as any}</h3>
+                                        <h3 className="text-xl font-semibold">{product.name as unknown as string}</h3>
                                         <p className="text-muted-foreground">
                                             {product.description as any}
                                         </p>

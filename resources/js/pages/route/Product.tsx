@@ -18,12 +18,12 @@ export default function Product() {
 
   const { products, category, selectedCategory } = usePage<ProductPageProps>().props;
 
-  const [activeCategory, setActiveCategory] = useState<number | undefined>(selectedCategory);
+  const [, setActiveCategory] = useState<number | undefined>(selectedCategory);
 
   const [openParentId, setOpenParentId] = useState<number | null>(null);
 
 
-  const lang: LangCode = 'en';
+  const _lang: LangCode = 'en';
 
   function handleCategoryClick(categoryId: number) {
     setActiveCategory(categoryId);

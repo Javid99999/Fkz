@@ -120,7 +120,7 @@ const ProductDetails: React.FC = () => {
                 <div className="p-6">
 
                   <Badge className="mb-2">{prod.classification ? 'with classifications' : ''}</Badge>
-                  <h2 className="text-2xl font-bold mb-1">{prod.name as any}</h2>
+                  <h2 className="text-2xl font-bold mb-1">{prod.name as unknown as string}</h2>
                   <p className="text-sm text-muted-foreground mb-4">
                       CAS: {prod.cas_number}
                   </p>
@@ -129,7 +129,7 @@ const ProductDetails: React.FC = () => {
                   <div className="grid grid-cols-2 gap-2 text-base">
                     {prod.property.map((prop, index) => (
                       <div key={index}>
-                        <p className="font-medium text-lg">{prop.name as any}:</p>
+                        <p className="font-medium text-lg">{prop.name as unknown as string}:</p>
                         <p className="text-sm text-muted-foreground">{prop.numeric ?? prop.value}  {prop.unit?.unit.en}</p>
                       </div>
                     ))}
@@ -157,7 +157,7 @@ const ProductDetails: React.FC = () => {
                     </div> */}
                     <div className="mt-12">
                       <p className="font-medium">Packaging:</p>
-                      <p>{prod.packaging as any}</p>
+                      <p>{prod.packaging as unknown as string}</p>
                     </div>
                   </div>
 
@@ -179,8 +179,8 @@ const ProductDetails: React.FC = () => {
 
               {/* card baslik */}
               <CardHeader>
-                <CardTitle className="mt-6 text-xl">{prod.name as any}</CardTitle>
-                <CardDescription className="">{prod.description as any}</CardDescription>
+                <CardTitle className="mt-6 text-xl">{prod.name as unknown as string}</CardTitle>
+                <CardDescription className="">{prod.description as unknown as string}</CardDescription>
               </CardHeader>
 
               <CardContent>
@@ -229,7 +229,7 @@ const ProductDetails: React.FC = () => {
                         {prod.property.map((prop, index) => (
                           <div key={index} className="p-4 border rounded-md mb-4">
                             <p className="font-medium text-sm text-muted-foreground">
-                              {prop.name as any}
+                              {prop.name as unknown as string}
                             </p>
                             <p className="font-semibold">{prop.numeric ?? prop.value} - {getLocalizedText(prop.unit?.unit)}</p>
                           </div>
@@ -249,14 +249,14 @@ const ProductDetails: React.FC = () => {
 
                               <h2 key={index} className="text-xl font-semibold mb-2 flex items-center gap-2">
                                 <ShieldAlert className="h-5 w-5 text-destructive" />{" "}
-                                  {propclass.name as any}
+                                  {propclass.name as unknown as string}
                               </h2>
                             ))}
                             
                             <div className="ml-2">
                               {prod.picto?.map((pico, pinx)=>(
                               <Badge key={pinx} variant="destructive" className="mb-4 m-1">
-                                {pico.name as any}
+                                {pico.name as unknown as string}
                               </Badge>
                             ))}
                             </div>
@@ -269,12 +269,12 @@ const ProductDetails: React.FC = () => {
                             {prod.statements?.map((propstat, index) => (
 
                               <div key={index} className="m-4 mt-8">
-                                <h2 className="text-lg font-semibold">{propstat.name as any}</h2>
+                                <h2 className="text-lg font-semibold">{propstat.name as unknown as string}</h2>
                                   <ul className="space-y-2 mb-2">
 
                                     {propstat.securecode?.map((prescod, sindex) => (
 
-                                      <li key={sindex} className="text-lg ml-2 mt-2">{prescod.code} - {getLocalizedText(prescod.description as any)}</li>
+                                      <li key={sindex} className="text-lg ml-2 mt-2">{prescod.code} - {getLocalizedText(prescod.description)}</li>
 
                                     ))}
 
