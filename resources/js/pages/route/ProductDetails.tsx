@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselApi, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AppNavbarLayout from "@/layouts/app/app-navbar-layout";
 import { LocalizedText, Productt, ProductType } from "@/types";
@@ -251,6 +252,14 @@ const ProductDetails: React.FC = () => {
                                   {propclass.name as any}
                               </h2>
                             ))}
+                            
+                            <div className="ml-2">
+                              {prod.picto?.map((pico, pinx)=>(
+                              <Badge key={pinx} variant="destructive" className="mb-4 m-1">
+                                {pico.name as any}
+                              </Badge>
+                            ))}
+                            </div>
 
                             {/* <Badge variant="destructive" className="mb-4">
                               {product.safetyInfo.hazardClass}
@@ -288,6 +297,37 @@ const ProductDetails: React.FC = () => {
 
 
                           </div>
+
+
+                          <Separator />
+
+                          
+                          <div>
+                            <h3 className="text-lg font-semibold mb-4">Pictograms</h3>
+
+                            <div className="flex gap-4 mb-4">
+
+                              {prod.picto?.map((ppico, pin) => (
+
+                                <div
+                                  key={pin}
+                                  className="border p-4 rounded-md w-24 h-24 flex items-center justify-center"
+                                >
+                                  <p className="font-bold text-center">
+                                    {ppico.code}
+                                  </p>
+                                </div>
+
+                              ))}
+
+
+
+                            </div>
+
+
+                          </div>
+                          
+
 
                         </div>
 

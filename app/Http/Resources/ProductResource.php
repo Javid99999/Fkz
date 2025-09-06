@@ -23,6 +23,7 @@ class ProductResource extends JsonResource
             'country' => new CountryResource($this->whenLoaded('country')),
             'classification' => ClassificationResource::collection($this->whenLoaded('productClassification')),
             'statements' => StatementResource::collection($this->whenLoaded('productStatements')),
+            'picto' => PictogramResource::collection($this->whenLoaded('productPictogram')),
             'property' => PropertyResource::collection($this->whenLoaded('productPropertyValues')),
             // 'image_vitrin_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
             'img_url'=> $this->imageUrls('detailfoto', 'detail'),

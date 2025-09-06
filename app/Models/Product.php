@@ -217,7 +217,20 @@ class Product extends Model implements HasMedia
     }
 
 
+    public function productPictogram()
+    {
+        return $this->belongsToMany(
+            Pictogram::class, 
+            'product_pictograms', 
+            'product_id', 
+            'pictogram_id'
+        );
+    }
+
+
     // Pivot üzerinden securecodes’u almak için helper
+
+    // bunu sile bilirim 
     public function statementsWithSecurecodes()
     {
         return $this->statements->map(function ($statement) {
@@ -231,6 +244,8 @@ class Product extends Model implements HasMedia
         });
     }
 
+
+    
     
 
 

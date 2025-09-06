@@ -141,6 +141,15 @@ class ProductForm
                     ->preload()
                     ->required(),
 
+                Select::make('pictograms')
+                    ->label('Pictogram Ekle')
+                    ->relationship('productPictogram', 'name', function ($query){
+                        return $query->whereNotNull('name');
+                    })
+                    ->multiple()
+                    ->preload()
+                    ->required(),
+
 
                 Repeater::make('properties')
                     ->label('Product Properties')

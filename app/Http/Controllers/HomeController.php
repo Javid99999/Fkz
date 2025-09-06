@@ -19,7 +19,7 @@ class HomeController extends Controller
         $query = Product::with('media', 'category')
                    ->inRandomOrder()
                    ->take(5)
-                   ->get();
+                   ->paginate(3);
 
         $products = FuturedProductResource::collection($query)->resolve();
 

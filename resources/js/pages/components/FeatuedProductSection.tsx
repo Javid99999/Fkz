@@ -10,34 +10,7 @@ interface Props {
 
 
 export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
-    const featuredProducts = [
-        {
-          id: 1,
-          name: "Industrial Solvent X-100",
-          category: "Solvents",
-          description:
-            "High-performance industrial solvent for various applications",
-          image:
-            "https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&q=80",
-        },
-        {
-          id: 2,
-          name: "Polymer Stabilizer PS-200",
-          category: "Additives",
-          description: "Advanced stabilizer for polymer manufacturing processes",
-          image:
-            "https://images.unsplash.com/photo-1616458964840-5108e4d3adb3?w=800&q=80",
-        },
-        {
-          id: 3,
-          name: "Laboratory Reagent LR-50",
-          category: "Reagents",
-          description:
-            "High-purity reagent for analytical and research applications",
-          image:
-            "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80",
-        },
-    ];
+    
 
     return (
         <section className="py-16 bg-muted/50">
@@ -82,7 +55,7 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
 
                     <div className="flex justify-center mt-8">
                         <Button variant="outline" asChild className="w-full sm:w-auto">
-                            <Link href="/products" className="flex items-center justify-center gap-2">
+                            <Link href={route('products.index')} className="flex items-center justify-center gap-2">
                                 View All Products <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>

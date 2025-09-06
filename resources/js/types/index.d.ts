@@ -142,6 +142,14 @@ export interface Country
   iso_code: string;
 }
 
+export interface Picto
+{
+  id: number,
+  name: LocalizedText;
+  code: string,
+  symbol: string,
+}
+
 export interface ProductType {
     id: number;
     name: LocalizedText;
@@ -152,6 +160,7 @@ export interface ProductType {
     classification: Classification[];
     statements: Statemeents[];
     property: ProductPropertyValue[];
+    picto: Picto[];
     img_url: string[];
     lang: keyof LocalizedText;
 }
