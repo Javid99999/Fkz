@@ -60,8 +60,8 @@ jobs:
       - name: Clear Config Cache
         run: php artisan config:clear
 
-      - name: Generate Application Key
-        run: php artisan key:generate
+      - name: Export APP_KEY to environment
+        run: echo "APP_KEY=$(php artisan key:generate --show)" >> $GITHUB_ENV
 
       - name: Run Migrations
         run: php artisan migrate --env=testing --force
