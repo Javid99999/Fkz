@@ -49,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 
 
-    const _lang = product.lang
+    // const lang = product.lang
 
     const imageUrl = product.image_url ?? '/placeholder.jpg';
 

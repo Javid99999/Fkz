@@ -23,7 +23,7 @@ export default function Product() {
   const [openParentId, setOpenParentId] = useState<number | null>(null);
 
 
-  const _lang: LangCode = 'en';
+  // const lang: LangCode = 'en';
 
   function handleCategoryClick(categoryId: number) {
     setActiveCategory(categoryId);
