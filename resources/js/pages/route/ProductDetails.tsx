@@ -51,7 +51,7 @@ const ProductDetails: React.FC = () => {
     //   return text?.[currentLang as keyof LocalizedText] ?? '';
     // }
 
-    function getLocalizedText(text: LocalizedText | string | any): string {
+    function getLocalizedText(text: LocalizedText | string | null | undefined): string {
   // Eğer text null veya undefined ise
       if (!text) return '';
       
