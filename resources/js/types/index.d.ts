@@ -127,7 +127,7 @@ export interface Securecode
 {
   id: number;
   code: string | null;
-  description: LocalizedText;
+  description: LocalizedText | string;
 }
 export interface Classification
 {

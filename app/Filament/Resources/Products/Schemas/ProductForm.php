@@ -14,6 +14,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
@@ -24,26 +25,70 @@ class ProductForm
     {
         return $schema
             ->components([
-                Tabs::make('language_tabs')
-                    ->tabs([
-                        Tab::make('En')
-                            ->schema([
-                                TextInput::make('name.en')
-                                    ->label('Enter a Product name')
-                                    ->required()
-                                    ->maxLength('20')
+
+                Grid::make(2)
+                    ->schema([
+                        Tabs::make('language_tabs')
+                            ->tabs([
+                                Tab::make('En')
+                                    ->schema([
+                                        TextInput::make('name.en')
+                                            ->label('Enter a Product name')
+                                            ->required()
+                                            ->maxLength('20')
+                                    ]),
+                                Tab::make('Tr')
+                                        ->schema([
+                                            TextInput::make('name.tr')
+                                                ->label('Urun ismini giriniz')
+                                                ->required()
+                                                ->maxLength('20')
+                                        ])
+                                    
                             ]),
-                        Tab::make('Tr')
-                                ->schema([
-                                    TextInput::make('name.tr')
-                                        ->label('Urun ismini giriniz')
-                                        ->required()
-                                        ->maxLength('20')
-                                ])
-                            
+                        TextInput::make('cas_number')
+                            ->required(),
+                        
+
+                        Select::make('country_id')
+                            ->label('Select Country')
+                            ->options(Country::all()->pluck('name', 'id'))
+                            ->required()
+                            ->reactive(),
+
+                        Select::make('category_id')
+                            ->label('Select Category')
+                            ->options(function () {
+                                    return Category::whereNotNull('parent_id')
+                                        ->pluck('name', 'id');
+                                })
+                            ->required()
+                            ->reactive(),
+
                     ]),
-                TextInput::make('cas_number')
-                    ->required(),
+
+
+
+                // Tabs::make('language_tabs')
+                //     ->tabs([
+                //         Tab::make('En')
+                //             ->schema([
+                //                 TextInput::make('name.en')
+                //                     ->label('Enter a Product name')
+                //                     ->required()
+                //                     ->maxLength('20')
+                //             ]),
+                //         Tab::make('Tr')
+                //                 ->schema([
+                //                     TextInput::make('name.tr')
+                //                         ->label('Urun ismini giriniz')
+                //                         ->required()
+                //                         ->maxLength('20')
+                //                 ])
+                            
+                //     ]),
+                // TextInput::make('cas_number')
+                //     ->required(),
 
                 Tabs::make('language_tabs')
                     ->tabs([
@@ -83,72 +128,125 @@ class ProductForm
                                     ->columnSpanFull(),
                             ]),
                         ]),
-                Select::make('category_id')
-                    ->label('Select Category')
-                    ->options(function () {
-                            return Category::whereNotNull('parent_id')
-                                ->pluck('name', 'id');
-                        })
-                    ->required()
-                    ->reactive(),
+                // Select::make('category_id')
+                //     ->label('Select Category')
+                //     ->options(function () {
+                //             return Category::whereNotNull('parent_id')
+                //                 ->pluck('name', 'id');
+                //         })
+                //     ->required()
+                //     ->reactive(),
 
-                Select::make('country_id')
-                    ->label('Select Country')
-                    ->options(Country::all()->pluck('name', 'id'))
-                    ->required()
-                    ->reactive(),
-
-
+                // Select::make('country_id')
+                //     ->label('Select Country')
+                //     ->options(Country::all()->pluck('name', 'id'))
+                //     ->required()
+                //     ->reactive(),
 
 
-                Select::make('productClassifications')
-                    ->label('Classifications')
-                    ->relationship('productClassifications', 'name', function ($query) {
-                        return $query->whereNotNull('name');
-                    })
-                    ->preload()
-                    ->pivotData(function ($get) {
-                        return [
-                            'risk_level_id' => $get('risk_level_id'),
-                        ];
-                    })
-                    ->required(),
-                Select::make('risk_level_id')
-                    ->label('Risk Level')
-                    ->options(function () {
-                        $locale = app()->getLocale();
-                        return RiskLevel::all()->pluck("risk.{$locale}", 'id');
-                    })
-                    ->required()
-                    ->afterStateHydrated(function ($component, $state, $record) {
-                        if ($record) {
-                            // İlk sınıflandırmanın risk_level_id'sini al
-                            $classification = $record->productClassifications()->first();
-                            if ($classification && $classification->pivot->risk_level_id) {
-                                $component->state($classification->pivot->risk_level_id);
-                            }
-                        }
-                    })
-                    ->reactive(),
+                Grid::make(2)
+                    ->schema([
+                        Select::make('productClassifications')
+                            ->label('Classifications')
+                            ->relationship('productClassifications', 'name', function ($query) {
+                                return $query->whereNotNull('name');
+                            })
+                            ->preload()
+                            ->pivotData(function ($get) {
+                                return [
+                                    'risk_level_id' => $get('risk_level_id'),
+                                ];
+                            })
+                            ->required(),
+
+                        Select::make('risk_level_id')
+                            ->label('Risk Level')
+                            ->options(function () {
+                                $locale = app()->getLocale();
+                                return RiskLevel::all()->pluck("risk.{$locale}", 'id');
+                            })
+                            ->required()
+                            ->afterStateHydrated(function ($component, $state, $record) {
+                                if ($record) {
+                                    // İlk sınıflandırmanın risk_level_id'sini al
+                                    $classification = $record->productClassifications()->first();
+                                    if ($classification && $classification->pivot->risk_level_id) {
+                                        $component->state($classification->pivot->risk_level_id);
+                                    }
+                                }
+                            })
+                            ->reactive(),
+                        
+                        Select::make('statements')
+                            ->label('Statement ekle')
+                            ->relationship('statements', 'name', function ($query) {
+                                return $query->whereNotNull('name');
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
+
+                        Select::make('pictograms')
+                            ->label('Pictogram Ekle')
+                            ->relationship('productPictogram', 'name', function ($query){
+                                return $query->whereNotNull('name');
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
+                    ]),
+
+
+                // Select::make('productClassifications')
+                //     ->label('Classifications')
+                //     ->relationship('productClassifications', 'name', function ($query) {
+                //         return $query->whereNotNull('name');
+                //     })
+                //     ->preload()
+                //     ->pivotData(function ($get) {
+                //         return [
+                //             'risk_level_id' => $get('risk_level_id'),
+                //         ];
+                //     })
+                //     ->required(),
+                // Select::make('risk_level_id')
+                //     ->label('Risk Level')
+                //     ->options(function () {
+                //         $locale = app()->getLocale();
+                //         return RiskLevel::all()->pluck("risk.{$locale}", 'id');
+                //     })
+                //     ->required()
+                //     ->afterStateHydrated(function ($component, $state, $record) {
+                //         if ($record) {
+                //             // İlk sınıflandırmanın risk_level_id'sini al
+                //             $classification = $record->productClassifications()->first();
+                //             if ($classification && $classification->pivot->risk_level_id) {
+                //                 $component->state($classification->pivot->risk_level_id);
+                //             }
+                //         }
+                //     })
+                //     ->reactive(),
 
                 
-                Select::make('statements')
-                    ->label('Statement ekle')
-                    ->relationship('statements', 'name', function ($query) {
-                        return $query->whereNotNull('name');
-                    })
-                    ->multiple()
-                    ->preload()
-                    ->required(),
+                // Select::make('statements')
+                //     ->label('Statement ekle')
+                //     ->relationship('statements', 'name', function ($query) {
+                //         return $query->whereNotNull('name');
+                //     })
+                //     ->multiple()
+                //     ->preload()
+                //     ->required(),
 
-                Select::make('pictograms')
-                    ->label('Pictogram Ekle')
-                    ->relationship('productPictogram', 'name', function ($query){
-                        return $query->whereNotNull('name');
-                    })
-                    ->multiple()
-                    ->preload()
-                    ->required(),
+                // Select::make('pictograms')
+                //     ->label('Pictogram Ekle')
+                //     ->relationship('productPictogram', 'name', function ($query){
+                //         return $query->whereNotNull('name');
+                //     })
+                //     ->multiple()
+                //     ->preload()
+                //     ->required(),
 
 
                 Repeater::make('properties')
@@ -211,25 +309,18 @@ class ProductForm
                     ->grid(4),
 
 
-                    SpatieMediaLibraryFileUpload::make('vitrin_image')
-                            ->label('Vitrin Resmi')
-                            ->collection('vitrin') // tekil olsa bile gerekli
-                            ->preserveFilenames()
-                            ->image()
-                            ->disk('public')
-                            ->visibility('public')
-                            ->default(fn ($record) => $record?->getFirstMediaUrl('vitrin', 'thumb')),
-                    
-                    SpatieMediaLibraryFileUpload::make('detailfoto')
-                            ->label('Detay Fotoğraflar')
-                            ->collection('detailfoto') // bu grup adıyla media kaydedilir
-                            ->preserveFilenames()
-                            ->image()
-                            ->multiple() // çoklu yükleme için şart
-                            ->disk('public')
-                            ->visibility('public')
-                            ->default(fn ($record) => $record?->getMedia('detailfoto')->map(fn ($media) => $media->getUrl('detail'))->toArray())
 
+                    SpatieMediaLibraryFileUpload::make('detailfoto')
+                        ->label('Fotoğraflar')
+                        ->collection('detailfoto')
+                        ->image()
+                        ->multiple()
+                        ->preserveFilenames()
+                        ->disk('public')
+                        ->visibility('public')
+                        
+
+                    
 
 
 
@@ -244,3 +335,36 @@ class ProductForm
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SpatieMediaLibraryFileUpload::make('vitrin_image')
+                    //         ->label('Vitrin Resmi')
+                    //         ->collection('vitrin') // tekil olsa bile gerekli
+                    //         ->preserveFilenames()
+                    //         ->image()
+                    //         ->disk('public')
+                    //         ->visibility('public')
+                    //         ->default(fn ($record) => $record?->getFirstMediaUrl('vitrin', 'thumb')),
+                    
+                    // SpatieMediaLibraryFileUpload::make('detailfoto')
+                    //         ->label('Detay Fotoğraflar')
+                    //         ->collection('detailfoto') // bu grup adıyla media kaydedilir
+                    //         ->preserveFilenames()
+                    //         ->image()
+                    //         ->multiple() // çoklu yükleme için şart
+                    //         ->disk('public')
+                    //         ->visibility('public')
+                    //         ->default(fn ($record) => $record?->getMedia('detailfoto')->map(fn ($media) => $media->getUrl('detail'))->toArray())
+                    

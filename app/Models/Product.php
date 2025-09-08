@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -64,8 +65,7 @@ class Product extends Model implements HasMedia
 
         // Vitrin boyutu
         $this->addMediaConversion('vitrin-thumb')  // 'vitrin' yerine 'vitrin-thumb'
-                ->width(348)
-                ->height(192)
+                ->fit(Fit::Max, 348, 192)
                 ->sharpen(10) 
                 ->quality(90)
                 ->performOnCollections('vitrin');
@@ -73,33 +73,77 @@ class Product extends Model implements HasMedia
 
 
 
-    public function imageUrl(string $collectionName = 'vitrin', string $conversionName = ''): ?string
-    {
-        $media = $this->getFirstMedia($collectionName);
+    // public function mediaUrls(string $collectionName = 'vitrin', string $conversionName = '', bool $multiple = false): string|array|null
+    // {
+    //     $mediaItems = $this->getMedia($collectionName);
 
-        if (!$media) {
-            return null;
+    //     if ($mediaItems->isEmpty()) {
+    //         return $multiple ? [] : null;
+    //     }
+
+    //     $urls = $mediaItems->map(function ($media) use ($conversionName) {
+    //         if ($conversionName && $media->hasGeneratedConversion($conversionName)) {
+    //             return $media->getUrl($conversionName);
+    //         }
+    //         return $media->getUrl();
+    //     });
+
+    //     return $multiple ? $urls->toArray() : $urls->first();
+    // }
+
+
+
+    public function mediaUrls(string $collectionName): string|array|null
+    {
+        $mediaItems = $this->getMedia($collectionName);
+
+        if ($mediaItems->isEmpty()) {
+            return $collectionName === 'detailfoto' ? [] : null;
         }
 
-        if ($conversionName && $media->hasGeneratedConversion($conversionName)) {
-            return $media->getUrl($conversionName);
+        // Vitrin için tek resim, detailfoto için tüm resimler
+        if ($collectionName === 'vitrin') {
+            return $mediaItems->first()->getUrl('vitrin-thumb');
         }
 
-        return $media->getUrl();
-    }//$this->imageUrl('vitrin', 'vitrin-thumb');
+        if ($collectionName === 'detailfoto') {
+            return $mediaItems->map(fn($media) => $media->getUrl('detail'))->toArray();
+        }
 
-    // Detail: çoklu foto
-    public function imageUrls(string $collectionName = 'detailfoto', string $conversionName = ''): array
-    {
-        return $this->getMedia($collectionName)
-            ->map(function ($media) use ($conversionName) {
-                if ($conversionName && $media->hasGeneratedConversion($conversionName)) {
-                    return $media->getUrl($conversionName);
-                }
-                return $media->getUrl();
-            })
-            ->toArray();
+        // Diğer koleksiyonlar için orijinal URL
+        return $mediaItems->map(fn($media) => $media->getUrl())->toArray();
     }
+
+
+
+
+    // public function imageUrl(string $collectionName = 'vitrin', string $conversionName = ''): ?string
+    // {
+    //     $media = $this->getFirstMedia($collectionName);
+
+    //     if (!$media) {
+    //         return null;
+    //     }
+
+    //     if ($conversionName && $media->hasGeneratedConversion($conversionName)) {
+    //         return $media->getUrl($conversionName);
+    //     }
+
+    //     return $media->getUrl();
+    // }//$this->imageUrl('vitrin', 'vitrin-thumb');
+
+    // // Detail: çoklu foto
+    // public function imageUrls(string $collectionName = 'detailfoto', string $conversionName = ''): array
+    // {
+    //     return $this->getMedia($collectionName)
+    //         ->map(function ($media) use ($conversionName) {
+    //             if ($conversionName && $media->hasGeneratedConversion($conversionName)) {
+    //                 return $media->getUrl($conversionName);
+    //             }
+    //             return $media->getUrl();
+    //         })
+    //         ->toArray();
+    // }
     //$this->imageUrls('detail', 'detail');
 
 
@@ -308,6 +352,93 @@ class Product extends Model implements HasMedia
     {
         return $this->name['zhcn'] ?? null;
     }
+
+
+
+
+
+
+    // protected static function booted()
+    // {
+    //     static::saved(function ($record) {
+    //         // Eğer detailfoto var ve vitrin boşsa
+    //         if ($record->hasMedia('detailfoto') && ! $record->hasMedia('vitrin')) {
+    //             $first = $record->getFirstMedia('detailfoto');
+    //             if ($first) {
+    //                 $first->copy($record, 'vitrin');
+    //             }
+    //         }
+    //     });
+    // }
+
+
+    // protected static function booted()
+    // {
+    //     static::saved(function ($record) {
+    //         $detailPhotos = $record->getMedia('detailfoto');
+
+    //         // Eğer detailfoto daha önce boşsa, yani ilk resim yüklenmişse
+    //         if ($detailPhotos->count() === 1) {
+    //             $latestDetail = $detailPhotos->first();
+
+    //             // Vitrin koleksiyonunda resim varsa sil
+    //             if ($record->hasMedia('vitrin')) {
+    //                 $record->clearMediaCollection('vitrin');
+    //             }
+
+    //             // İlk detailfoto resmini vitrine kopyala
+    //             $latestDetail->copy($record, 'vitrin');
+    //         }
+    //     });
+    // }
+
+
+    // protected static function booted()
+    // {
+    //     static::saved(function ($record) {
+    //         $detailPhotos = $record->getMedia('detailfoto');
+
+    //         // Vitrin koleksiyonunu temizle
+    //         $record->clearMediaCollection('vitrin');
+
+    //         if ($detailPhotos->isNotEmpty()) {
+    //             // İlk detailfoto resmini vitrine kopyala
+    //             $firstDetail = $detailPhotos->first();
+    //             $firstDetail->copy($record, 'vitrin');
+    //         }
+    //     });
+    // }
+
+    protected static function booted()
+    {
+
+        static::saved(function ($record) {
+            $detailPhotos = $record->getMedia('detailfoto');
+            $firstDetail = $detailPhotos->first();
+
+            $vitrin = $record->getFirstMedia('vitrin');
+
+            if (!$firstDetail) {
+                // Detailfoto boşsa vitrin temizle
+                $record->clearMediaCollection('vitrin');
+                return;
+            }
+
+            // Vitrin zaten ilk resim ile eşleşiyorsa bir şey yapma
+            if ($vitrin && $vitrin->id === $firstDetail->id) {
+                return;
+            }
+
+            // Vitrin farklıysa temizle ve ilk resmi kopyala
+            $record->clearMediaCollection('vitrin');
+            $firstDetail->copy($record, 'vitrin');
+        });
+
+
+    }
+
+
+
 
 
 }

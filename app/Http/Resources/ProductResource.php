@@ -26,7 +26,7 @@ class ProductResource extends JsonResource
             'picto' => PictogramResource::collection($this->whenLoaded('productPictogram')),
             'property' => PropertyResource::collection($this->whenLoaded('productPropertyValues')),
             // 'image_vitrin_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
-            'img_url'=> $this->imageUrls('detailfoto', 'detail'),
+            'img_url'=> $this->mediaUrls('detailfoto'),
         ];
     }
 }

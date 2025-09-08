@@ -23,7 +23,7 @@ class ProductShowResource extends JsonResource
             'property' => PropertyResource::collection($this->whenLoaded('productPropertyValues')),
             'country' => new CountryResource($this->whenLoaded('country')),
             'catag' => new TagCategoryResource($this->whenLoaded('category')),
-            'image_url' => $this->imageUrl('vitrin', 'vitrin-thumb'),
+            'image_url' => $this->mediaUrls('vitrin'),
         ];
     }
 }

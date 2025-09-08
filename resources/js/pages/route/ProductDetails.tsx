@@ -47,8 +47,35 @@ const ProductDetails: React.FC = () => {
 
 
 
-    function getLocalizedText(text: LocalizedText) {
-      return text?.[currentLang as keyof LocalizedText] ?? '';
+    // function getLocalizedText(text: LocalizedText) {
+    //   return text?.[currentLang as keyof LocalizedText] ?? '';
+    // }
+
+    function getLocalizedText(text: LocalizedText | string | any): string {
+  // Eğer text null veya undefined ise
+      if (!text) return '';
+      
+      // Eğer zaten string ise
+      if (typeof text === 'string') {
+        try {
+          // JSON string ise parse et
+          const parsed = JSON.parse(text);
+          if (parsed && typeof parsed === 'object') {
+            return parsed[currentLang as keyof LocalizedText] ?? '';
+          }
+          return text;
+        } catch {
+          // JSON değilse direkt string döndür
+          return text;
+        }
+      }
+      
+      // Normal LocalizedText objesi ise
+      if (typeof text === 'object' && text !== null) {
+        return text[currentLang as keyof LocalizedText] ?? '';
+      }
+      
+      return '';
     }
 
   return (

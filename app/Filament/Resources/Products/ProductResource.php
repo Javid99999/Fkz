@@ -38,6 +38,8 @@ class ProductResource extends Resource
         ];
     }
 
+    
+
 
     
 
