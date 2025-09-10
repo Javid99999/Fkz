@@ -1,0 +1,34 @@
+{
+
+
+  "fetureinfo": {
+    "en":       "Featured Products",
+    "tr":       "Öne Çıkan Ürünler",
+    "ru":       "Рекомендуемые продукты",
+    "zhcn":     "精选产品"
+  },
+
+  "dicover": {
+    "en":       "Discover our most popular chemical solutions",
+    "tr":       "En popüler kimyasal çözümlerimizi keşfedin",
+    "ru":       "Откройте для себя наши самые популярные химические решения",
+    "zhcn":     "探索我们最受欢迎的化学解决方案"
+  },
+
+  "detailview": {
+    "en":       "View Details",
+    "tr":       "Detayları Görüntüle",
+    "ru":       "Посмотреть детали",
+    "zhcn":     "查看详情"
+
+  },
+  
+  "viewall": {
+    "en":       "View All Products",
+    "tr":       "Tüm Ürünleri Görüntüle",
+    "ru":       "Посмотреть все продукты",
+    "zhcn":     "查看所有产品"
+
+  }
+  
+}

@@ -1,0 +1,32 @@
+{
+    "product":{
+        "en":   "Products",
+        "tr":   "Ürünler",
+        "ru":   "Продукты",
+        "zhcn": "产品"
+    },
+
+    "company":{
+        "en":   "Company",
+        "tr":   "Şirket",
+        "ru":   "Компания",
+        "zhcn": "公司"
+    },
+
+    "contact":{
+        "en":   "Contact",
+        "tr":   "İletişim",
+        "ru":   "Контакты",
+        "zhcn": "联系我们"
+    },
+
+    "requestinfo":{
+        "en":   "Request Information",
+        "tr":   "Bilgi Talep Et",
+        "ru":   "Запросить информацию",
+        "zhcn": "请求信息"
+    }
+    
+
+
+}

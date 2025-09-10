@@ -3,11 +3,11 @@ import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
 
 
-export type LangCode = 'en' | 'tr';
+export type LangCode = 'en' | 'tr' | 'ru' | 'zhcn';
 export type LocalizedText = {
-  en: string;
-  tr: string;
-  [key: string]: string | undefined;
+  // en: string;
+  // tr: string;
+  [key in LangCode]?: string | undefined;
 };
 
 
@@ -41,7 +41,7 @@ export interface Paginated<T> {
 
 export interface Category {
   id: number;
-  name: Record<LangCode, string>;
+  name: LocalizedText;
   children: Category[];
   products_count: number;
   // product: Product | null
@@ -74,11 +74,15 @@ export interface NavItem {
 
 export interface TagCategory {
   id: number;
-  name: string;
+  name: LocalizedText;
   lang: keyof LocalizedText;
 }
 
-
+export interface NewTagCategory {
+  id: number;
+  name: LocalizedText;
+  lang: keyof LocalizedText;
+}
 
 
 
@@ -181,8 +185,9 @@ export interface BasicProductInfo
   id:number,
   name:LocalizedText;
   description:LocalizedText;
-  category: Category;
+  category: NewTagCategory;
   img_url: string;
+  lang: keyof LocalizedText;
 }
 
 

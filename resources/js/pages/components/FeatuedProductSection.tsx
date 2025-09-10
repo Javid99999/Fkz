@@ -3,7 +3,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { BasicProductInfo } from '@/types';
 import { Link } from '@inertiajs/react';
 import { ArrowRight } from 'lucide-react';
-
+import langfeture from "../../lang/featuredsection_lang.json"
+import { useLang } from '../ContextHelper/LanguageContext';
 interface Props {
   products: BasicProductInfo[];
 }
@@ -11,6 +12,7 @@ interface Props {
 
 export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
     
+    const { lang } = useLang();
 
     return (
         <section className="py-16 bg-muted/50">
@@ -18,10 +20,10 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                 <div className="flex flex-col gap-8">
                     <div className="flex flex-col gap-2 text-center">
                         <h2 className="text-3xl font-bold tracking-tight">
-                            Featured Products
+                            {langfeture.fetureinfo[lang] ?? langfeture.fetureinfo.en}
                         </h2>
-                        <p className="text-muted-foreground">
-                            Discover our most popular chemical solutions
+                        <p className="text-muted-foreground text-lg">
+                            {langfeture.dicover[lang] ?? langfeture.dicover.en}
                         </p>
                     </div>
 
@@ -31,21 +33,22 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
                                         src={product.img_url}
-                                        alt={product.name as unknown as string}
+                                        alt={product.name[lang]}
                                         className="w-full h-full object-cover transition-transform hover:scale-105"
                                     />
                                 </div>
                                 <CardContent className="p-4 sm:p-6">
                                     <div className="flex flex-col gap-2">
                                         <span className="text-sm text-primary font-medium">
-                                            {product.category.name as unknown as string}
+                                            {product.category.name[lang] ?? product.category.name.en}
+                                            
                                         </span>
-                                        <h3 className="text-xl font-semibold">{product.name as unknown as string}</h3>
+                                        <h3 className="text-xl font-semibold">{product.name[lang] ?? product.name.en}</h3>
                                         <p className="text-muted-foreground">
-                                            {product.description as unknown as string}
+                                            {product.description[lang] ?? product.description.en}
                                         </p>
                                         <Button variant="outline" className="mt-4 w-full sm:w-auto" asChild>
-                                            <Link href={route('products.show', product.id)}>View Details</Link>
+                                            <Link href={route('products.show', product.id)}>{langfeture.detailview[lang] ?? langfeture.detailview.en}</Link>
                                         </Button>
                                     </div>
                                 </CardContent>
@@ -56,7 +59,7 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                     <div className="flex justify-center mt-8">
                         <Button variant="outline" asChild className="w-full sm:w-auto">
                             <Link href={route('products.index')} className="flex items-center justify-center gap-2">
-                                View All Products <ArrowRight className="h-4 w-4" />
+                                {langfeture.viewall[lang] ?? langfeture.viewall.en} <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>
                     </div>

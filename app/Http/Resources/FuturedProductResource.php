@@ -16,8 +16,8 @@ class FuturedProductResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'description' => $this->description,
+            'name' => $this->getTranslations('name'),
+            'description' => $this->getTranslations('description'),
             'img_url' => $this->mediaUrls('vitrin'),
             'category' => new TagCategoryResource($this->whenLoaded('category'))
         ];

@@ -10,6 +10,7 @@ import { BasicProductInfo } from "@/types";
 
 
 const Home = ({ products }: { products: BasicProductInfo[] }) => {
+ 
   return (
     <div className="min-h-screen bg-background">
         <AppNavbarLayout>

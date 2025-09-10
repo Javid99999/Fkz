@@ -14,6 +14,8 @@ class Product extends Model implements HasMedia
     use HasTranslations, InteractsWithMedia;
 
 
+    protected $translatable = ['name','description','packaging'];
+
     protected $fillable = [
         'name',
         'cas_number',
@@ -23,8 +25,6 @@ class Product extends Model implements HasMedia
         'category_id'
     ];
 
-
-    protected $translatable = ['name','description','packaging'];
 
 
     protected $casts = [

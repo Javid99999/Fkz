@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { Beaker, Moon, Sun, Menu } from 'lucide-react';
-import { SharedData } from '@/types';
+import { LangCode, SharedData } from '@/types';
 import { Button } from '@/components/ui/button';
+import navlink from "../../lang/navbar_lang.json"
 import { route } from 'ziggy-js';
 
 import {
@@ -13,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import clsx from 'clsx';
+import { useLang } from '@/pages/ContextHelper/LanguageContext';
 
 interface Props {
   children: React.ReactNode;
@@ -21,17 +23,16 @@ interface Props {
 const AppNavbarLayout = ({ children }: Props) => {
   const { ziggy } = usePage<SharedData>().props;
   const currentPath = ziggy.location;
-  const [lang, setLang] = useState("en");
   const [darkMode, setDarkMode] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { lang, setLang } = useLang();
+  
 
   useEffect(() => {
     const saved = localStorage.getItem('darkMode') === 'true';
     document.documentElement.classList.toggle('dark', saved);
     setDarkMode(saved);
 
-    const savedLang = localStorage.getItem("lang") || "en";
-    setLang(savedLang);
   }, []);
 
   const toggleDarkMode = () => {
@@ -42,7 +43,7 @@ const AppNavbarLayout = ({ children }: Props) => {
     localStorage.setItem('darkMode', String(newValue));
   };
 
-  const handleLangChange = (value: string) => {
+  const handleLangChange = (value: LangCode) => {
     setLang(value);
     localStorage.setItem("lang", value);
   };
@@ -64,6 +65,8 @@ const AppNavbarLayout = ({ children }: Props) => {
         : 'dark:hover:bg-gray-700'
     );
 
+    
+
   return (
     <header className="sticky top-0 z-20 w-full border-b bg-background backdrop-blur">
       <div className="container flex h-16 items-center justify-between">
@@ -78,13 +81,13 @@ const AppNavbarLayout = ({ children }: Props) => {
           {/* Desktop Menu */}
           <nav className="hidden md:flex gap-6">
             <Link href={route('products.index')} className={linkClass('/products')}>
-              Products
+              {navlink.product[lang] ?? navlink.product.en}
             </Link>
             <Link href="/company" className={linkClass('/company')}>
-              Company
+              {navlink.company[lang] ?? navlink.company.en}
             </Link>
             <Link href="/contact" className={linkClass('/contact')}>
-              Contact
+              {navlink.contact[lang] ?? navlink.contact.en}
             </Link>
           </nav>
         </div>
@@ -93,7 +96,7 @@ const AppNavbarLayout = ({ children }: Props) => {
         <div className="flex items-center gap-3 md:gap-4">
           {/* Language Selector */}
           <Select value={lang} onValueChange={handleLangChange}>
-            <SelectTrigger className="w-full max-w-[120px] md:w-[100px] text-sm">
+            <SelectTrigger className="w-full max-w-[120px] md:w-[120px] text-md">
               <SelectValue placeholder="Lang" />
             </SelectTrigger>
             <SelectContent>
@@ -106,12 +109,15 @@ const AppNavbarLayout = ({ children }: Props) => {
               <SelectItem value="tr">
                 <span className="flex items-center gap-2">🇹🇷 Türk</span>
               </SelectItem>
+              <SelectItem value="zhcn">
+                <span className="flex items-center gap-2">🇨🇳 普通话</span>
+              </SelectItem>
             </SelectContent>
           </Select>
 
           {/* Request Info Button */}
           <Button asChild className="hidden sm:block text-sm md:text-base">
-            <Link href="/contact">Request Information</Link>
+            <Link href="/contact">{navlink.requestinfo[lang] ?? navlink.requestinfo.en}</Link>
           </Button>
 
           {/* Dark Mode Toggle */}
@@ -136,16 +142,16 @@ const AppNavbarLayout = ({ children }: Props) => {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 w-full bg-background shadow-lg z-10 flex flex-col items-start p-4 gap-2 border-t">
           <Link href={route('products.index')} className={mobileLinkClass('/products')}>
-            Products
+            {navlink.product[lang] ?? navlink.product.en}
           </Link>
           <Link href="/company" className={mobileLinkClass('/company')}>
-            Company
+            {navlink.company[lang] ?? navlink.company.en}
           </Link>
           <Link href="/contact" className={mobileLinkClass('/contact')}>
-            Contact
+            {navlink.contact[lang] ?? navlink.contact.en}
           </Link>
           <Button asChild className="w-full mt-2">
-            <Link href="/contact">Request Information</Link>
+            <Link href="/contact">{navlink.requestinfo[lang] ?? navlink.requestinfo.en}</Link>
           </Button>
         </div>
       )}

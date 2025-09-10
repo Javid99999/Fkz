@@ -1,18 +1,23 @@
 import { Card } from '@/components/ui/card'
 import { Beaker, Shield, Truck } from 'lucide-react'
 import React from 'react'
+import companyval from '../../lang/companyvalue_lang.json'
+import { useLang } from '../ContextHelper/LanguageContext'
+
 
 export const CompanyValueSection = () => {
+
+    const { lang } = useLang();
+
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto flex flex-col gap-8">
             <div className="text-center">
                 <h2 className="text-3xl font-bold tracking-tight">
-                    Why Choose ChemCorp
+                    {companyval.whyus[lang] ?? companyval.whyus.en}
                 </h2>
-                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto">
-                    We combine industry expertise with cutting-edge chemical
-                    solutions to deliver exceptional value
+                <p className="text-muted-foreground mt-2 max-w-2xl mx-auto text-lg">
+                    {companyval.tellswhy[lang] ?? companyval.tellswhy.en}
                 </p>
             </div>
 
@@ -22,10 +27,9 @@ export const CompanyValueSection = () => {
                         <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto">
                             <Beaker className="h-6 w-6 text-primary" />
                         </div>
-                        <h3 className="text-xl font-semibold">Premium Quality</h3>
+                        <h3 className="text-xl font-semibold">{companyval.reasonsF[lang] ?? companyval.reasonsF.en}</h3>
                         <p className="text-muted-foreground">
-                            All our products undergo rigorous quality control to ensure
-                            the highest standards of purity and performance.
+                            {companyval.reasonsFinfo[lang] ?? companyval.reasonsFinfo.en}
                         </p>
                     </div>
                 </Card>
@@ -35,10 +39,9 @@ export const CompanyValueSection = () => {
                         <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto">
                             <Shield className="h-6 w-6 text-primary" />
                         </div>
-                        <h3 className="text-xl font-semibold">Safety First</h3>
+                        <h3 className="text-xl font-semibold">{companyval.reasonsS[lang] ?? companyval.reasonsS.en}</h3>
                         <p className="text-muted-foreground">
-                            We prioritize safety in all aspects of our operations, from
-                            product development to handling and transportation.
+                            {companyval.reasonsSinfo[lang] ?? companyval.reasonsSinfo.en}
                         </p>
                     </div>
                 </Card>
@@ -48,10 +51,9 @@ export const CompanyValueSection = () => {
                         <div className="bg-primary/10 p-3 rounded-full w-fit mx-auto">
                             <Truck className="h-6 w-6 text-primary" />
                         </div>
-                        <h3 className="text-xl font-semibold">Reliable Supply</h3>
+                        <h3 className="text-xl font-semibold">{companyval.reasonsTh[lang] ?? companyval.reasonsTh.en}</h3>
                         <p className="text-muted-foreground">
-                            Our efficient supply chain ensures timely delivery of
-                            products to meet your production schedules.
+                            {companyval.reasonsThinfo[lang] ?? companyval.reasonsThinfo.en}
                         </p>
                     </div>
                 </Card>

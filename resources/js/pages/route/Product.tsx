@@ -8,9 +8,11 @@ import { ChevronDown, ChevronRight, Filter, Search } from "lucide-react";
 import { useState } from "react";
 import { router } from '@inertiajs/react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import productlang from '../../lang/product_lang.json'
 import ProductCard from "../components/ProductCard";
 import Pagination from "../components/Pagination";
 import { FooterSection } from "../components/FooterSection";
+import { useLang } from "../ContextHelper/LanguageContext";
 
 
 
@@ -24,6 +26,8 @@ export default function Product() {
 
 
   // const lang: LangCode = 'en';
+
+  const { lang } = useLang();
 
   function handleCategoryClick(categoryId: number) {
     setActiveCategory(categoryId);
@@ -40,7 +44,7 @@ export default function Product() {
     setOpenParentId(prev => (prev === categoryId ? null : categoryId));
   }
 
-
+  
   
   // Onemli not inertia da 2 turlu laravelden veri cekme var biri visit digeri get
 
@@ -75,10 +79,10 @@ export default function Product() {
           {/* Urun Katalok Yazisi */}
           <div className="flex flex-col items-center text-center gap-4">
             <h1 className="text-4xl md:text-3xl font-bold tracking-tight">
-              Product Catalog
+              {productlang.productcatalog[lang] ?? productlang.productcatalog.en}
             </h1>
-            <p className="text-gray-600">
-              Browse our comprehensive range of chemical products
+            <p className="text-gray-600 text-lg">
+              {productlang.browseproduct[lang] ?? productlang.browseproduct.en}
             </p>
           </div>
 
@@ -91,7 +95,7 @@ export default function Product() {
                 <Search className="absolute left-3 top-2 h-5 w-5 text-gray-500" />
                 
                 <Input
-                  placeholder="Search products..."
+                  placeholder={productlang.searchpro[lang] ?? productlang.searchpro.en}
                   className="pl-10 w-full border border-primary focus:border-primary focus:ring-0 rounded-md"
                   // value={searchTerm} burda fonksiyon olduktan sonra calisir 
                   // onChange={(e) => setSearchTerm(e.target.value)}
@@ -99,11 +103,11 @@ export default function Product() {
               </div>
               <Button
                 variant="outline"
-                className="md:hidden"
+                className="md:hidden text-foreground"
                 // onClick={() => setIsMobileFilterOpen(!isMobileFilterOpen)}
               >
                 <Filter className="h-4 w-4 mr-2" />
-                  Filters
+                  {productlang.filters[lang] ?? productlang.filters.en}
               </Button>
             </div>
           </div>
@@ -126,7 +130,7 @@ export default function Product() {
                   
                   <div>
                     <div className="flex items-center justify-between">
-                      <h3 className="font-bold text-base">Filters</h3>
+                      <h3 className="font-bold text-base">{productlang.filters[lang] ?? productlang.filters.en}</h3>
                       <Button
                         variant="ghost"
                         size="sm"
@@ -143,7 +147,7 @@ export default function Product() {
                           });
                         }}
                       >
-                        Clear all
+                        {productlang.clearall[lang] ?? productlang.clearall.en}
                       </Button>
                     </div>
                   </div>
@@ -152,7 +156,7 @@ export default function Product() {
                   {/* Kategory Filter */}
                   <div className="space-y-3 mb-4">
 
-                    <h5 className="text-sm font-medium">Categories:</h5>
+                    <h5 className="text-md font-medium">{productlang.categoryies[lang] ?? productlang.categoryies.en}:</h5>
 
                     <div className="space-y-2">
 
@@ -164,7 +168,7 @@ export default function Product() {
                                 onClick={() => toggleChildren(cat.id)}
                               >
                                 {openParentId === cat.id ? <ChevronDown /> : <ChevronRight />}
-                                <div className="font-bold text-sm">{cat.name.en}</div>
+                                <div className="font-bold text-md">{cat.name[lang] ?? cat.name.en}</div>
                               </button>
 
                               <div
@@ -180,7 +184,7 @@ export default function Product() {
                                     }`}
                                     onClick={() => handleCategoryClick(child.id)}
                                   >
-                                    <span className="text-sm text-foreground">{child.name.en}</span>
+                                    <span className="text-md text-foreground">{child.name[lang] ?? child.name.en}</span>
                                     <span className="text-xs font-medium bg-gray-200 text-gray-900 px-2 py-0.5 rounded-full">
                                       {child.products_count}
                                     </span>
@@ -216,9 +220,9 @@ export default function Product() {
               ) : (
                 <div className="col-span-full flex items-center justify-center h-64">
                   <div className="text-center">
-                    <h3 className="text-lg font-medium">No products found</h3>
+                    <h3 className="text-lg font-medium">{productlang.ifnoproduct[lang] ?? productlang.ifnoproduct.en}</h3>
                     <p className="text-muted-foreground mt-1">
-                      Try adjusting your filters
+                      {productlang.tryadjustfilter[lang] ?? productlang.tryadjustfilter.en}
                     </p>
                     <Button
                         variant="ghost"
@@ -237,7 +241,7 @@ export default function Product() {
                           });
                         }}
                       >
-                        Clear all
+                        {productlang.clearall[lang] ?? productlang.clearall.en}
                       </Button>
                   </div>
                 </div>

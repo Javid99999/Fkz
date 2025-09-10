@@ -16,7 +16,7 @@ class TagCategoryResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->getTranslations('name'),
             'slug' => $this->slug,
         ];
     }

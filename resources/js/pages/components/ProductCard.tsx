@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { LocalizedText, Productt } from '@/types';
 import { Link, router } from '@inertiajs/react';
 import React, { useState } from 'react';
+import { useLang } from '../ContextHelper/LanguageContext';
 
 
 interface ProductCardProps {
@@ -47,7 +48,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     const toggleDesc = () => setShowFull(!showFull);
 
 
-
+    const { lang } = useLang();
 
     // const lang = product.lang
 
@@ -75,7 +76,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                         <h2 className='text-primary font-bold text-sm'>CAS: {product.cas_num}</h2>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="outline">{product.catag.name as unknown as string}</Badge>
+                        <Badge variant="outline">{product.catag.name[lang]}</Badge>
                         
                         {/* <Badge variant="outline">{product.form}</Badge> */}
                         {/* <Badge variant="outline">{product.purity}</Badge> */}

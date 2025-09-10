@@ -21,7 +21,7 @@ class HomeController extends Controller
                    ->take(5)
                    ->paginate(3);
 
-        $products = FuturedProductResource::collection($query)->resolve();
+        $products = FuturedProductResource::collection($query)->response()->getData(true)['data'];
 
         return Inertia::render('welcome',['products' => $products]);
     }

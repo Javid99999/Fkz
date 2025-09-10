@@ -1,0 +1,61 @@
+{
+
+    "productcatalog":{
+        "en":       "Product Catalog",
+        "tr":       "Ürün Kataloğu",
+        "ru":       "Каталог продукции",
+        "zhcn":     "产品目录"
+    },
+
+    "browseproduct":{
+        "en":       "Browse our comprehensive range of chemical products",
+        "tr":       "Kapsamlı kimyasal ürün yelpazemizi inceleyin",
+        "ru":       "Просмотрите наш широкий ассортимент химических продуктов",
+        "zhcn":     "浏览我们全面的化学产品系列"
+    },
+
+    "searchpro":{
+        "en":       "Search products...",
+        "tr":       "Ürünlerde Ara...",
+        "ru":       "Поиск продуктов...",
+        "zhcn":         "搜索产品..."
+    },
+
+    "filters":{
+        "en":       "Filters",
+        "tr":       "Filtreler",
+        "ru":       "Фильтры",
+        "zhcn":     "筛选"
+    },
+
+    "clearall":{
+        "en":       "Clear all",
+        "tr":       "Tümünü Temizle",
+        "ru":       "Очистить всё",
+        "zhcn":     "清除全部"
+    },
+
+    "categoryies":{
+        "en":       "Categories",
+        "tr":       "Kategoriler",
+        "ru":       "Категории",
+        "zhcn":     "类别"
+    },
+
+    "ifnoproduct":{
+        "en":       "No products found",
+        "tr":       "Ürün bulunamadı",
+        "ru":       "Продукты не найдены",
+        "zhcn":     "未找到产品"
+    },
+
+    "tryadjustfilter":{
+        "en":       "Try adjusting your filters",
+        "tr":       "Filtrelerinizi ayarlamayı deneyin",
+        "ru":       "Попробуйте изменить фильтры",
+        "zhcn":     "尝试调整您的筛选条件"
+    }
+
+
+
+}
