@@ -27,9 +27,9 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                         {products?.map((product) => (
-                            <Card key={product.id} className="overflow-hidden p-0">
+                            <Card key={product.id} className="overflow-hidden flex flex-col h-full">
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
                                         src={product.img_url}
@@ -37,21 +37,29 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                         className="w-full h-full object-cover transition-transform hover:scale-105"
                                     />
                                 </div>
-                                <CardContent className="p-4 sm:p-6">
-                                    <div className="flex flex-col gap-2">
-                                        <span className="text-sm text-primary font-medium">
+                                <CardContent className="flex flex-col flex-1 p-4 sm:p-6 sm:pt-0">
+                                    <div className="flex flex-col flex-1">
+                                        <span className="text-sm text-primary font-medium pb-4">
                                             {product.category.name[lang] ?? product.category.name.en}
-                                            
                                         </span>
-                                        <h3 className="text-xl font-semibold">{product.name[lang] ?? product.name.en}</h3>
+                                        <h3 className="text-xl font-semibold mb-2">
+                                            {product.name[lang] ?? product.name.en}
+                                        </h3>
                                         <p className="text-muted-foreground">
                                             {product.description[lang] ?? product.description.en}
                                         </p>
-                                        <Button variant="outline" className="mt-4 w-full sm:w-auto" asChild>
-                                            <Link href={route('products.show', product.id)}>{langfeture.detailview[lang] ?? langfeture.detailview.en}</Link>
+                                    </div>
+
+                                    {/* BU ARTIK HER ZAMAN EN ALTTA */}
+                                    <div className="mt-6">
+                                        <Button variant="outline" className="w-full sm:w-auto" asChild>
+                                            <Link href={route('products.show', product.id)}>
+                                            {langfeture.detailview[lang] ?? langfeture.detailview.en} Detail
+                                            </Link>
                                         </Button>
                                     </div>
                                 </CardContent>
+
                             </Card>
                         ))}
                     </div>
