@@ -34,6 +34,41 @@ class SubCategoryForm
                                     ->label('Alt Kategori Adi (TR)')
                                     ->required(),
                             ]),
+
+                        Tab::make('Azerbaycan')
+                            ->schema([
+                                TextInput::make('name.az')
+                                    ->label('Alt Kategori Adi (AZE)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Ru')
+                            ->schema([
+                                TextInput::make('name.ru')
+                                    ->label('Alt Kategori Adi (RU)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Chine')
+                            ->schema([
+                                TextInput::make('name.zhcn')
+                                    ->label('Alt Kategori Adi (CHIN)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Ibranice(Izrail)')
+                            ->schema([
+                                TextInput::make('name.he')
+                                    ->label('Alt Kategori Adi (HE)')
+                                    ->required(),
+                            ]),
+                            
+                        Tab::make('Arapca')
+                            ->schema([
+                                TextInput::make('name.ar')
+                                    ->label('Alt Kategori Adi (AR)')
+                                    ->required(),
+                            ]),
                     ]),
 
                 TextInput::make('slug')

@@ -50,20 +50,56 @@ class ProductStatementForm
                     ->label('Secure Code')
                     ->required(),
 
-                Tabs::make('language')
-                    ->tabs([
-                        Tab::make('En')
-                            ->schema([
-                                Textarea::make('description.en')
-                                    ->label('Description')
-                                    ->required()
-                            ]),
-                        Tab::make('Tr')
-                            ->schema([
-                                Textarea::make('description.tr')
-                                    ->label('Aciqlama')
-                                    ->required()
-                            ])
+                Tabs::make('description_tabs')
+                ->tabs([
+                    Tab::make('EN')
+                        ->schema([
+                            TextInput::make('description.en')
+                                ->label('Description (EN)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('TR')
+                        ->schema([
+                            TextInput::make('description.tr')
+                                ->label('Açıklama (TR)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('AZ')
+                        ->schema([
+                            TextInput::make('description.az')
+                                ->label('Description (AZ)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('RU')
+                        ->schema([
+                            TextInput::make('description.ru')
+                                ->label('Description (RU)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('ZH')
+                        ->schema([
+                            TextInput::make('description.zhcn')
+                                ->label('Description (ZH)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('HE')
+                        ->schema([
+                            TextInput::make('description.he')
+                                ->label('Description (HE)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('AR')
+                        ->schema([
+                            TextInput::make('description.ar')
+                                ->label('Description (AR)')
+                                ->required(),
+                        ]),
                     ]),
             ]);
         

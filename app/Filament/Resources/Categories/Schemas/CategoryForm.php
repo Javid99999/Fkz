@@ -25,12 +25,49 @@ class CategoryForm
                                 ->live(onBlur: true)
                                 ->afterStateUpdated(fn(Set $set, ?string $state) => $set('slug', Str::slug($state))),
                             ]),
+
                         Tab::make('TR')
                             ->schema([
                                 TextInput::make('name.tr')
                                     ->label('Kategori Adi (TR)')
                                     ->required(),
                             ]),
+
+                        Tab::make('Azerbaycan')
+                            ->schema([
+                                TextInput::make('name.az')
+                                    ->label('Category Name (Aze)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Ru')
+                            ->schema([
+                                TextInput::make('name.ru')
+                                    ->label('Category Name (Ru)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Chine')
+                            ->schema([
+                                TextInput::make('name.zhcn')
+                                    ->label('Category Name (Chine)')
+                                    ->required(),
+                            ]),
+
+                        Tab::make('Ibranice(Izrail)')
+                            ->schema([
+                                TextInput::make('name.he')
+                                    ->label('Category Name (Ibranice)')
+                                    ->required(),
+                            ]),
+                            
+                        Tab::make('Arapca')
+                            ->schema([
+                                TextInput::make('name.ar')
+                                    ->label('Category Name (Arapca)')
+                                    ->required(),
+                            ]),
+
                         ]),
                         TextInput::make('slug')
                             ->unique(\App\Models\Category::class, 'slug')

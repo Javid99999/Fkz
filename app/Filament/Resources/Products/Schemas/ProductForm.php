@@ -33,22 +33,62 @@ class ProductForm
                 Grid::make(2)
                     ->schema([
                         Tabs::make('language_tabs')
-                            ->tabs([
-                                Tab::make('En')
-                                    ->schema([
-                                        TextInput::make('name.en')
-                                            ->label('Enter a Product name')
-                                            ->required()
-                                            ->maxLength('20')
-                                    ]),
-                                Tab::make('Tr')
-                                        ->schema([
-                                            TextInput::make('name.tr')
-                                                ->label('Urun ismini giriniz')
-                                                ->required()
-                                                ->maxLength('20')
-                                        ])
-                                    
+                        ->tabs([
+                            Tab::make('EN')
+                                ->schema([
+                                    TextInput::make('name.en')
+                                        ->label('Enter a Product Name (EN)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('TR')
+                                ->schema([
+                                    TextInput::make('name.tr')
+                                        ->label('Ürün İsmini Giriniz (TR)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('AZ')
+                                ->schema([
+                                    TextInput::make('name.az')
+                                        ->label('Məhsul Adını Daxil Edin (AZ)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('RU')
+                                ->schema([
+                                    TextInput::make('name.ru')
+                                        ->label('Введите название продукта (RU)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('ZH')
+                                ->schema([
+                                    TextInput::make('name.zhcn')
+                                        ->label('输入产品名称 (ZH)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('HE')
+                                ->schema([
+                                    TextInput::make('name.he')
+                                        ->label('הזן שם מוצר (HE)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
+
+                            Tab::make('AR')
+                                ->schema([
+                                    TextInput::make('name.ar')
+                                        ->label('أدخل اسم المنتج (AR)')
+                                        ->required()
+                                        ->maxLength(20),
+                                ]),
                             ]),
                         TextInput::make('cas_number')
                             ->required(),
@@ -94,44 +134,109 @@ class ProductForm
                 // TextInput::make('cas_number')
                 //     ->required(),
 
-                Tabs::make('language_tabs')
-                    ->tabs([
-                        Tab::make('En')
-                            ->schema([
-                                Textarea::make('description.en')
-                                    ->label('Description')
-                                    ->rows(5)
-                                    ->required()
-                                    ->columnSpanFull(),
-                            ]),
-                        Tab::make('Tr')
-                            ->schema([
-                                Textarea::make('description.tr')
-                                    ->label('Aciklama')
-                                    ->rows(5)
-                                    ->required()
-                                    ->columnSpanFull(),
-                            ]),
+                Tabs::make('description_tabs')
+                ->tabs([
+                    Tab::make('EN')
+                        ->schema([
+                            TextInput::make('description.en')
+                                ->label('Description (EN)')
+                                ->required(),
                         ]),
-                Tabs::make('language_tabs')
-                    ->tabs([
-                        Tab::make('En')
-                            ->schema([
-                                Textarea::make('packaging.en')
-                                    ->label('Packaging')
-                                    ->rows(5)
-                                    ->required()
-                                    ->columnSpanFull(),
-                            ]),
-                        Tab::make('Tr')
-                            ->schema([
-                                Textarea::make('packaging.tr')
-                                    ->label('Paketleme')
-                                    ->rows(5)
-                                    ->required()
-                                    ->columnSpanFull(),
-                            ]),
+
+                    Tab::make('TR')
+                        ->schema([
+                            TextInput::make('description.tr')
+                                ->label('Açıklama (TR)')
+                                ->required(),
                         ]),
+
+                    Tab::make('AZ')
+                        ->schema([
+                            TextInput::make('description.az')
+                                ->label('Description (AZ)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('RU')
+                        ->schema([
+                            TextInput::make('description.ru')
+                                ->label('Description (RU)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('ZH')
+                        ->schema([
+                            TextInput::make('description.zhcn')
+                                ->label('Description (ZH)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('HE')
+                        ->schema([
+                            TextInput::make('description.he')
+                                ->label('Description (HE)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('AR')
+                        ->schema([
+                            TextInput::make('description.ar')
+                                ->label('Description (AR)')
+                                ->required(),
+                        ]),
+                    ]),
+
+                Tabs::make('packaging_tabs')
+                ->tabs([
+                    Tab::make('EN')
+                        ->schema([
+                            TextInput::make('packaging.en')
+                                ->label('Packaging (EN)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('TR')
+                        ->schema([
+                            TextInput::make('packaging.tr')
+                                ->label('Ambalaj (TR)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('AZ')
+                        ->schema([
+                            TextInput::make('packaging.az')
+                                ->label('Qablaşdırma (AZ)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('RU')
+                        ->schema([
+                            TextInput::make('packaging.ru')
+                                ->label('Упаковка (RU)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('ZH')
+                        ->schema([
+                            TextInput::make('packaging.zhcn')
+                                ->label('包装 (ZH)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('HE')
+                        ->schema([
+                            TextInput::make('packaging.he')
+                                ->label('אריזה (HE)')
+                                ->required(),
+                        ]),
+
+                    Tab::make('AR')
+                        ->schema([
+                            TextInput::make('packaging.ar')
+                                ->label('التعبئة (AR)')
+                                ->required(),
+                        ]),
+                ]),
                 // Select::make('category_id')
                 //     ->label('Select Category')
                 //     ->options(function () {

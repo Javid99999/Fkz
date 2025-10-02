@@ -14,6 +14,7 @@ class PackagingsTable
     {
         return $table
             ->columns([
+                TextColumn::make('packaging'),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
