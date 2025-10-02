@@ -1,0 +1,83 @@
+{
+    "origin": {
+        "en": "Origin",
+        "tr": "Menşei",
+        "ru": "Происхождение",
+        "zhcn": "产地",
+        "he": "מוצא",
+        "ar": "المنشأ",
+        "az": "Mənşə"
+    },
+    "packaging": {
+        "en": "Packaging",
+        "tr": "Ambalaj",
+        "ru": "Упаковка",
+        "zhcn": "包装",
+        "he": "אריזה",
+        "ar": "التغليف",
+        "az": "Qablaşdırma"
+    },
+    "backtoProducts": {
+        "en": "Back to Products",
+        "tr": "Ürünlere Geri Dön",
+        "ru": "Назад к продуктам",
+        "zhcn": "返回产品",
+        "he": "חזרה למוצרים",
+        "ar": "العودة إلى المنتجات",
+        "az": "Məhsullara Qayıt"
+    },
+    "properties": {
+        "en": "Properties",
+        "tr": "Özellikler",
+        "ru": "Свойства",
+        "zhcn": "特性",
+        "he": "מאפיינים",
+        "ar": "الخصائص",
+        "az": "Xüsusiyyətlər"
+    },
+    "safety": {
+        "en": "Safety",
+        "tr": "Güvenlik",
+        "ru": "Безопасность",
+        "zhcn": "安全",
+        "he": "בטיחות",
+        "ar": "السلامة",
+        "az": "Təhlükəsizlik"
+    },
+    "delivery": {
+        "en": "Delivery",
+        "tr": "Teslimat",
+        "ru": "Доставка",
+        "zhcn": "交付",
+        "he": "משלוח",
+        "ar": "التسليم",
+        "az": "Çatdırılma"
+    },
+    "shipping": {
+        "en": "Shipping",
+        "tr": "Nakliye",
+        "ru": "Отгрузка",
+        "zhcn": "运输",
+        "he": "שילוח",
+        "ar": "الشحن",
+        "az": "Göndərmə"
+    },
+    "documents": {
+        "en": "Documents",
+        "tr": "Belgeler",
+        "ru": "Документы",
+        "zhcn": "文件",
+        "he": "מסמכים",
+        "ar": "المستندات",
+        "az": "Sənədlər"
+    },
+    "withClassifications": {
+        "en": "with classifications",
+        "tr": "sınıflandırmalarla",
+        "ru": "с классификациями",
+        "zhcn": "带有分类",
+        "he": "עם סיווגים",
+        "ar": "مع التصنيفات",
+        "az": "təsnifatlarla"
+    }
+}

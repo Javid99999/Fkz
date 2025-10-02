@@ -6,9 +6,11 @@ use App\Enum\ValueParseType;
 use App\Models\Category;
 use App\Models\Classification;
 use App\Models\Country;
+use App\Models\DeliveryInfo;
 use App\Models\Property;
 use App\Models\RiskLevel;
 use App\Models\Unit;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -18,6 +20,8 @@ use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Tabs;
 use Filament\Schemas\Components\Tabs\Tab;
 use Filament\Schemas\Schema;
+use Illuminate\Console\View\Components\Secret;
+use Illuminate\Support\Str;
 
 class ProductForm
 {
@@ -186,6 +190,25 @@ class ProductForm
                             ->preload()
                             ->required(),
 
+                        Select::make('productCountryShipment')
+                            ->label('Satisin uygun oldgu ulkeler')
+                            ->relationship('productCountryShipment', 'name', function ($query) {
+                                return $query->whereNotNull('name');
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
+                        
+                        Select::make('productTerms')
+                            ->label('Ticaret Kurallari ekle')
+                            ->relationship('productTerms', 'name',function ($query) {
+                                return $query->whereNotNull('name');
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
 
                         Select::make('pictograms')
                             ->label('Pictogram Ekle')
@@ -196,6 +219,37 @@ class ProductForm
                             ->preload()
                             ->required(),
 
+                        Select::make('requireDoc')
+                            ->label('Talep edilen belgeler')
+                            ->relationship('requireDoc', 'name', function ($query) {
+                                return $query->whereNotNull('name');
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+
+                        // Select::make('deliverInfo')
+                        //     ->label('Teslimat Bilgisi')
+                        //     ->options(DeliveryInfo::all()->mapWithKeys(function ($item) {
+                        //         return [$item->id => $item->delivery ?: $item->loading];
+                        // })->toArray())
+
+                        
+                        Select::make('delivery_info_id')
+                            ->label('Delivery Info')
+                            ->options(DeliveryInfo::all()->pluck('delivery', 'id'))
+                            ->required()
+                            ->reactive(),
+
+                        Select::make('productPackaging')
+                            ->label('Ticaret Kurallari ekle')
+                            ->relationship('productPackaging', 'packaging',function ($query) {
+                                return $query;
+                            })
+                            ->multiple()
+                            ->preload()
+                            ->required(),
+            
                     ]),
 
 
@@ -317,16 +371,22 @@ class ProductForm
                         ->multiple()
                         ->preserveFilenames()
                         ->disk('public')
-                        ->visibility('public')
-                        
+                        ->visibility('public'),
 
                     
-
-
-
-
-
-
+                    SpatieMediaLibraryFileUpload::make('pdfs')
+                        ->label('PDF Dosyaları')
+                        ->collection('pdfs')
+                        ->acceptedFileTypes(['application/pdf']) // image() yerine bu
+                        ->multiple() // Birden fazla PDF için
+                        ->preserveFilenames()
+                        ->disk('public')
+                        ->visibility('public')
+                        ->downloadable() // PDF'ler için önemli
+                        ->openable() // PDF'i tarayıcıda açmak için
+                        ->maxSize(10240) // 10MB limit
+                        ->maxFiles(5), // Maksimum dosya sayısı (opsiyonel)
+                    
 
 
 

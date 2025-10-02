@@ -3,11 +3,16 @@ import { Link } from '@inertiajs/react'
 import langJson from "../../lang/herosection_lang.json"
 import { useLang } from '../ContextHelper/LanguageContext';
 
-export const HeroSection = () => {
+interface Props {
+  onCompanyClick?: () => void;
+}
+
+export const HeroSection = ({onCompanyClick} : Props) => {
     const { lang } = useLang();
     return (
         <section className="relative bg-gradient-to-b from-primary/10 to-background py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col items-center text-center gap-6 sm:gap-8 max-w-4xl mx-auto">
+                
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-16">
                     {langJson.heropageinfo[lang] ?? langJson.heropageinfo.en} <br />
                     <span className="text-primary">{langJson.heropageinfonext[lang] ?? langJson.heropageinfonext.en}</span>
@@ -20,7 +25,7 @@ export const HeroSection = () => {
                         <Link href="/products">{langJson.buton[lang] ?? langJson.buton.en}</Link>
                     </Button>
                     <Button size="lg" variant="outline" className="border-foreground text-lg w-full sm:w-auto" asChild>
-                        <Link href="/company">{langJson.butonabout[lang] ?? langJson.butonabout.en}</Link>
+                        <Link onClick={(e) => { e.preventDefault(); onCompanyClick?.(); }}>{langJson.butonabout[lang] ?? langJson.butonabout.en}</Link>
                     </Button>
                 </div>
             </div>

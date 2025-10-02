@@ -1,0 +1,44 @@
+{
+
+    "packagingLoading":{
+        "en": "Packaging & Loading",
+        "tr": "Ambalajlama ve Yükleme",
+        "ru": "Упаковка и погрузка",
+        "zhcn": "包装与装载",
+        "he": "אריזה וטעינה",
+        "ar": "التعبئة والتحميل",
+        "az": "Qablaşdırma və Yükləmə"
+    },
+    "estimatedDelivery":
+    {
+        "en": "Estimated Delivery",
+        "tr": "Tahmini Teslimat",
+        "ru": "Ориентировочная доставка",
+        "zhcn": "预计交付",
+        "he": "מסירה משוערת",
+        "ar": "موعد التسليم المتوقع",
+        "az": "Təxmini Çatdırılma"
+    },
+    "containerLoading":{
+        "en": "Container Loading",
+        "tr": "Konteyner Yükleme",
+        "ru": "Загрузка контейнера",
+        "zhcn": "集装箱装载",
+        "he": "טעינת מכולה",
+        "ar": "تحميل الحاويات",
+        "az": "Konteyner Yükləmə"
+    },
+    "availablePackagingOprions":{
+        "en": "Available Packaging Options",
+        "tr": "Mevcut Ambalaj Seçenekleri",
+        "ru": "Доступные варианты упаковки",
+        "zhcn": "可用包装选项",
+        "he": "אפשרויות אריזה זמינות",
+        "ar": "خيارات التغليف المتاحة",
+        "az": "Mövcud Qablaşdırma Seçimləri"
+    }
+
+
+
+
+}

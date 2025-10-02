@@ -1,32 +1,51 @@
 {
-    "product":{
-        "en":   "Products",
-        "tr":   "Ürünler",
-        "ru":   "Продукты",
-        "zhcn": "产品"
+    "product": {
+        "en": "Products",
+        "tr": "Ürünler",
+        "ru": "Продукты",
+        "zhcn": "产品",
+        "he": "מוצרים",
+        "ar": "المنتجات",
+        "az": "Məhsullar"
     },
 
-    "company":{
-        "en":   "Company",
-        "tr":   "Şirket",
-        "ru":   "Компания",
-        "zhcn": "公司"
+    "company": {
+        "en": "Company",
+        "tr": "Şirket",
+        "ru": "Компания",
+        "zhcn": "公司",
+        "he": "חברה",
+        "ar": "الشركة",
+        "az": "Şirkət"
     },
 
-    "contact":{
-        "en":   "Contact",
-        "tr":   "İletişim",
-        "ru":   "Контакты",
-        "zhcn": "联系我们"
+    "about":{
+        "en": "About",
+        "tr": "Hakkında",
+        "ru": "О нас",
+        "zhcn": "关于",
+        "he": "על אודות",
+        "ar": "حول",
+        "az": "Haqqında"
     },
 
-    "requestinfo":{
-        "en":   "Request Information",
-        "tr":   "Bilgi Talep Et",
-        "ru":   "Запросить информацию",
-        "zhcn": "请求信息"
+    "contact": {
+        "en": "Contact",
+        "tr": "İletişim",
+        "ru": "Контакты",
+        "zhcn": "联系我们",
+        "he": "צור קשר",
+        "ar": "تواصل",
+        "az": "Əlaqə"
+    },
+
+    "requestinfo": {
+        "en": "Request Information",
+        "tr": "Bilgi Talep Et",
+        "ru": "Запросить информацию",
+        "zhcn": "请求信息",
+        "he": "בקשת מידע",
+        "ar": "طلب المعلومات",
+        "az": "Məlumat Tələbi"
     }
-    
-
-
 }

@@ -19,7 +19,7 @@ export const CallAction = () => {
                 {letstalk.techteam[lang] ?? letstalk.techteam.en}
             </p>
             <Button size="lg" className="mt-4 text-md" asChild>
-                <Link href="/contact">{letstalk.contactustoday[lang] ?? letstalk.contactustoday.en}</Link>
+                <Link href={route('company.contact')}>{letstalk.contactustoday[lang] ?? letstalk.contactustoday.en}</Link>
             </Button>
         </div>
     </section>

@@ -1,6 +1,5 @@
 import { Card } from '@/components/ui/card'
 import { Beaker, Shield, Truck } from 'lucide-react'
-import React from 'react'
 import companyval from '../../lang/companyvalue_lang.json'
 import { useLang } from '../ContextHelper/LanguageContext'
 

@@ -1,0 +1,42 @@
+{
+
+    "deliverAvailable":{
+        "en":       "Available Delivery Methods",
+        "tr":       "Mevcut Teslimat Yöntemleri",
+        "ru":       "Доступные способы доставки",
+        "zhcn":     "可用的交付方式",
+        "he":       "שיטות משלוח זמינות",
+        "ar":       "طرق التسليم المتاحة",
+        "az":       "Mövcud Çatdırılma Üsulları"
+    },
+    "availableFor":{
+        "en": "Available for",
+        "tr": "Geçerli",
+        "ru": "Доступно для",
+        "zhcn": "适用于",
+        "he": "זמין עבור",
+        "ar": "متاح لـ",
+        "az": "Keçərlidir"
+    },
+
+    "countriesWeCanShip":{
+        "en": "Countries We Can Ship To",
+        "tr": "Gönderim Yapabildiğimiz Ülkeler",
+        "ru": "Страны, в которые мы можем доставить",
+        "zhcn": "我们可以运送到的国家",
+        "he": "מדינות אליהן נוכל לשלוח",
+        "ar": "الدول التي يمكننا الشحن إليها",
+        "az": "Çatdırılma Edə Bildiyimiz Ölkələr"
+    },
+
+    "tradingTerms":{
+        "en": "Trading Rules & Conditions",
+        "tr": "Ticaret Kuralları ve Koşulları",
+        "ru": "Правила и условия торговли",
+        "zhcn": "交易规则与条款",
+        "he": "כללי וסוגי מסחר",
+        "ar": "قواعد وشروط التداول",
+        "az": "Ticarət Qaydaları və Şərtləri"
+    }
+
+}

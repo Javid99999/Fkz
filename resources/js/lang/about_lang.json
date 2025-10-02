@@ -1,0 +1,216 @@
+{
+
+    "aboutFks":{
+        "en": "About Fks Platform",
+        "tr": "Fks Platform Hakkında",
+        "ru": "О платформе Fks",
+        "zhcn": "关于 Fks 平台",
+        "he": "על פלטפורמת Fks",
+        "ar": "حول منصة Fks",
+        "az": "Fks Platformu Haqqında"
+    },
+
+    "connectionChemicaluppliers":{
+        "en": "Connecting chemical suppliers and buyers worldwide through a secure, transparent, and efficient B2B trading platform, while also enabling direct B2C access for individual customers.",
+        "tr": "Kimyasal tedarikçileri ve alıcılarını dünya çapında güvenli, şeffaf ve verimli bir B2B ticaret platformu aracılığıyla birleştirirken, bireysel müşteriler için doğrudan B2C erişimi de sağlıyoruz.",
+        "ru": "Соединяем поставщиков и покупателей химической продукции по всему миру через безопасную, прозрачную и эффективную B2B торговую платформу, а также предоставляем прямой доступ B2C для индивидуальных клиентов.",
+        "zhcn": "通过安全、透明且高效的B2B交易平台，将全球化学品供应商与买家连接起来，同时为个人客户提供直接的B2C访问。",
+        "he": "מחברים ספקי וכימיקלים וקונים ברחבי העולם באמצעות פלטפורמת מסחר B2B מאובטחת, שקופה ויעילה, ובמקביל מאפשרים גישה ישירה ל-B2C עבור לקוחות פרטיים.",
+        "ar": "نربط موردي ومشتري المواد الكيميائية حول العالم من خلال منصة تجارة B2B آمنة وشفافة وفعالة، مع تمكين الوصول المباشر B2C للعملاء الأفراد.",
+        "az": "Kimyəvi maddə təchizatçılarını və alıcılarını dünya üzrə təhlükəsiz, şəffaf və səmərəli B2B ticarət platforması vasitəsilə birləşdirir, həmçinin fərdi müştərilər üçün birbaşa B2C çıxışını təmin edirik."
+    },
+    "ourMission":{
+        "en": "Our Mission",
+        "tr": "Misyonumuz",
+        "ru": "Наша миссия",
+        "zhcn": "我们的使命",
+        "he": "המשימה שלנו",
+        "ar": "مهمتنا",
+        "az": "Missiyamız"
+    },
+    "toRevolutionize":{
+        "en": "To revolutionize the chemical and raw materials trading industry by providing a comprehensive platform that ensures safety, compliance, and transparency in every transaction.",
+        "tr": "Kimya ve ham madde ticaret sektörünü, her işlemde güvenlik, uyumluluk ve şeffaflığı sağlayan kapsamlı bir platform sunarak dönüştürmek.",
+        "ru": "Революционизировать отрасль торговли химическими веществами и сырьем, предоставляя комплексную платформу, обеспечивающую безопасность, соблюдение норм и прозрачность в каждой сделке.",
+        "zhcn": "通过提供一个确保每笔交易的安全性、合规性和透明性的综合平台，彻底改变化学品和原材料贸易行业。",
+        "he": "לחדש את תעשיית סחר הכימיקלים והחומרים הגולמיים על ידי מתן פלטפורמה מקיפה שמבטיחה בטיחות, עמידה בתקנים ושקיפות בכל עסקה.",
+        "ar": "لإحداث ثورة في صناعة تجارة المواد الكيميائية والمواد الخام من خلال توفير منصة شاملة تضمن السلامة والامتثال والشفافية في كل عملية.",
+        "az": "Kimyəvi maddələr və xammal ticarəti sahəsini, hər əməliyyatda təhlükəsizlik, uyğunluq və şəffaflığı təmin edən geniş bir platforma təqdim edərək inqilab etmək."
+    },
+    "ourVision":{
+        "en": "Our Vision",
+        "tr": "Vizyonumuz",
+        "ru": "Наше видение",
+        "zhcn": "我们的愿景",
+        "he": "החזון שלנו",
+        "ar": "رؤيتنا",
+        "az": "Vizyonumuz"
+    },
+    "toBecomeTheGlobalLeader":{
+        "en": "To become the global leader in chemical trading platforms, fostering innovation and sustainable practices across the chemical supply chain.",
+        "tr": "Kimya ticaret platformlarında global lider olmak, kimya tedarik zinciri genelinde yenilikçiliği ve sürdürülebilir uygulamaları teşvik etmek.",
+        "ru": "Стать мировым лидером среди платформ для торговли химическими веществами, способствуя инновациям и устойчивым практикам во всей цепочке поставок химической продукции.",
+        "zhcn": "成为全球化学品交易平台的领导者，推动整个化学品供应链的创新和可持续实践。",
+        "he": "להפוך למוביל העולמי בפלטפורמות מסחר בכימיקלים, תוך טיפוח חדשנות ופרקטיקות ברות קיימא בכל שרשרת האספקה הכימית.",
+        "ar": "أن نصبح الرائد العالمي في منصات تجارة المواد الكيميائية، مع تعزيز الابتكار والممارسات المستدامة عبر سلسلة توريد المواد الكيميائية.",
+        "az": "Kimyəvi ticarət platformalarında qlobal lider olmaq, kimyəvi tədarük zənciri boyunca innovasiyanı və dayanıqlı təcrübələri təşviq etmək."
+    },
+    "whyChooseFks":{
+        "en": "Why Choose Fks",
+        "tr": "Neden Fks’yi Seçmelisiniz",
+        "ru": "Почему выбирают Fks",
+        "zhcn": "为什么选择Fks",
+        "he": "למה לבחור ב-Fks",
+        "ar": "لماذا تختار Fks",
+        "az": "Niyə Fks-i Seçməlisiniz"
+    },
+    "safetyFirst":
+    {
+        "en": "Safety First",
+        "tr": "Önce Güvenlik",
+        "ru": "Безопасность прежде всего",
+        "zhcn": "安全第一",
+        "he": "בטיחות קודם כל",
+        "ar": "السلامة أولاً",
+        "az": "Əvvəlcə Təhlükəsizlik"
+    },
+    "completeSDS":{
+        "en": "Complete SDS/MSDS documentation and safety certifications for all materials.",
+        "tr": "Tüm malzemeler için eksiksiz SDS/MSDS dokümantasyonu ve güvenlik sertifikaları.",
+        "ru": "Полная документация SDS/MSDS и сертификаты безопасности для всех материалов.",
+        "zhcn": "为所有材料提供完整的SDS/MSDS文件和安全认证。",
+        "he": "תיעוד SDS/MSDS מלא ותעודות בטיחות לכל החומרים.",
+        "ar": "توثيق كامل لـ SDS/MSDS وشهادات السلامة لجميع المواد.",
+        "az": "Bütün materiallar üçün tam SDS/MSDS sənədləri və təhlükəsizlik sertifikatları."
+    },
+    "sdsVerified":{
+        "en": "SDS/MSDS Verified",
+        "tr": "SDS/MSDS Doğrulandı",
+        "ru": "SDS/MSDS Проверено",
+        "zhcn": "SDS/MSDS 已验证",
+        "he": "SDS/MSDS אומת",
+        "ar": "تم التحقق من SDS/MSDS",
+        "az": "SDS/MSDS Təsdiqləndi"
+    },
+    "safetyCertified":{
+        "en": "Safety Certified",
+        "tr": "Güvenlik Sertifikalı",
+        "ru": "Сертифицировано по безопасности",
+        "zhcn": "安全认证",
+        "he": "מאושר מבחינת בטיחות",
+        "ar": "معتمد من السلامة",
+        "az": "Təhlükəsizlik Sertifikatlı"
+    },
+    "globalNetwork":{
+        "en": "Global Network",
+        "tr": "Küresel Ağ",
+        "ru": "Глобальная сеть",
+        "zhcn": "全球网络",
+        "he": "רשת עולמית",
+        "ar": "شبكة عالمية",
+        "az": "Qlobal Şəbəkə"
+    },
+    "connectWithVerified":{
+        "en": "Connect with verified suppliers and buyers from around the world.",
+        "tr": "Dünya genelinden doğrulanmış tedarikçiler ve alıcılarla bağlantı kurun.",
+        "ru": "Связывайтесь с проверенными поставщиками и покупателями со всего мира.",
+        "zhcn": "与来自世界各地的认证供应商和买家建立联系。",
+        "he": "התחברו עם ספקים וקונים מאומתים מכל רחבי העולם.",
+        "ar": "تواصل مع الموردين والمشترين المعتمدين من جميع أنحاء العالم.",
+        "az": "Dünyanın dörd bir yanından təsdiqlənmiş tədarükçülər və alıcılarla əlaqə qurun."
+    },
+    "fiveZeroPlusCountries":{
+        "en": "50+ Countries",
+        "tr": "50+ Ülke",
+        "ru": "50+ Стран",
+        "zhcn": "50+ 个国家",
+        "he": "50+ מדינות",
+        "ar": "أكثر من 50 دولة",
+        "az": "50+ Ölkə"
+    },
+    "thothousandPlusSuppliers":{
+        "en": "1000+ Suppliers",
+        "tr": "1000+ Tedarikçi",
+        "ru": "1000+ Поставщиков",
+        "zhcn": "1000+ 供应商",
+        "he": "1000+ ספקים",
+        "ar": "أكثر من 1000 مورد",
+        "az": "1000+ Təchizatçı"
+    },
+    "transparentTrading":{
+        "en": "Transparent Trading",
+        "tr": "Şeffaf Ticaret",
+        "ru": "Прозрачная торговля",
+        "zhcn": "透明交易",
+        "he": "מסחר שקוף",
+        "ar": "تجارة شفافة",
+        "az": "Şəffaf Ticarət"
+    },
+    "clearPricingSpecifications":{
+        "en": "Clear pricing, specifications, and availability information.",
+        "tr": "Açık fiyatlandırma, teknik özellikler ve mevcudiyet bilgisi.",
+        "ru": "Четкая информация о ценах, характеристиках и наличии.",
+        "zhcn": "清晰的价格、规格和可用性信息。",
+        "he": "מידע ברור על מחירים, מפרטים וזמינות.",
+        "ar": "معلومات واضحة عن الأسعار والمواصفات والتوافر.",
+        "az": "Aydın qiymət, spesifikasiyalar və mövcudluq məlumatı."
+    },
+    "realRimeUpdates":{
+        "en": "Real-time Updates",
+        "tr": "Gerçek Zamanlı Güncellemeler",
+        "ru": "Обновления в реальном времени",
+        "zhcn": "实时更新",
+        "he": "עדכונים בזמן אמת",
+        "ar": "تحديثات في الوقت الفعلي",
+        "az": "Real vaxt yenilikləri"
+    },
+    "verifiedData":{
+        "en": "Verified Data",
+        "tr": "Doğrulanmış Veriler",
+        "ru": "Проверенные данные",
+        "zhcn": "已验证数据",
+        "he": "נתונים מאומתים",
+        "ar": "بيانات مُتحقق منها",
+        "az": "Təsdiqlənmiş Məlumat"
+    },
+    "ourCommitment":{
+        "en": "Our Commitment",
+        "tr": "Taahhüdümüz",
+        "ru": "Наша приверженность",
+        "zhcn": "我们的承诺",
+        "he": "המחויבות שלנו",
+        "ar": "التزامنا",
+        "az": "Öhdəliyimiz"
+    },
+    "weAreCommittedToMaintaining":{
+        "en": "We are committed to maintaining the highest standards of safety, compliance, and service excellence. Our platform is designed by industry experts who understand the unique challenges of chemical trading and the importance of regulatory compliance.",
+        "tr": "En yüksek güvenlik, uyumluluk ve hizmet mükemmeliyeti standartlarını sürdürmeye kararlıyız. Platformumuz, kimya ticaretinin benzersiz zorluklarını ve düzenleyici uyumun önemini anlayan sektör uzmanları tarafından tasarlanmıştır.",
+        "ru": "Мы привержены поддержанию самых высоких стандартов безопасности, соблюдения норм и качества обслуживания. Наша платформа разработана отраслевыми экспертами, которые понимают уникальные вызовы торговли химическими веществами и важность соблюдения нормативных требований.",
+        "zhcn": "我们致力于保持最高的安全、合规和服务标准。我们的平台由行业专家设计，他们了解化学品贸易的独特挑战以及遵守法规的重要性。",
+        "he": "אנו מחויבים לשמירה על הסטנדרטים הגבוהים ביותר של בטיחות, ציות ומצוינות בשירות. הפלטפורמה שלנו עוצבה על ידי מומחים בתעשייה שמבינים את האתגרים הייחודיים של סחר בכימיקלים ואת חשיבות הציות לרגולציה.",
+        "ar": "نحن ملتزمون بالحفاظ على أعلى معايير السلامة والامتثال وتميز الخدمة. تم تصميم منصتنا من قبل خبراء في الصناعة الذين يفهمون التحديات الفريدة لتجارة المواد الكيميائية وأهمية الامتثال التنظيمي.",
+        "az": "Təhlükəsizlik, uyğunluq və xidmət mükəmməlliyi üzrə ən yüksək standartları qorumağa sadiqik. Platformamız, kimyəvi ticarətin unikal çətinliklərini və tənzimləyici uyğunluğun əhəmiyyətini anlayan sənaye ekspertləri tərəfindən hazırlanmışdır."
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+}

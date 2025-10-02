@@ -11,14 +11,15 @@ class Property extends Model
     use HasTranslations;
 
 
-    public $translatable = ['name'];
+    public $translatable = ['name', 'value'];
 
-    protected $fillable = ['name', 'property_type'];
+    protected $fillable = ['name', 'value', 'property_type'];
 
 
 
     protected $casts = [
         'name' => 'array',
+        'value' => 'array',
         'property_type' => PropertyType::class,
     ];
 

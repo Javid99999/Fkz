@@ -1,4 +1,5 @@
 import { LangCode } from "@/types";
+import { router } from "@inertiajs/react";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 interface LangContextType {
@@ -14,11 +15,21 @@ export const LangProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     const saved = localStorage.getItem("lang") as LangCode | null;
     if (saved) setLangState(saved);
+    
   }, []);
 
   const setLang = (value: LangCode) => {
     setLangState(value);
     localStorage.setItem("lang", value);
+
+    router.visit('/set-locale', {
+      method: 'post',
+      data: { locale: value },
+      replace: true, // ✅ SPA gibi davranır, history'e eklemez
+      preserveState: true,
+      preserveScroll: true,
+      only: [], // ✅ hiçbir veri çekilmez
+    });
   };
 
   return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;

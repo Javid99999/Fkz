@@ -1,35 +1,47 @@
 {
   "heropageinfo": {
-    "en":       "Advanced Chemical Solutions",
-    "tr":       "Gelişmiş Kimyasal Çözümler",
-    "ru":       "Передовые химические решения",
-    "zhcn":    "先进化学解决方案"
+    "en": "Advanced Chemical Solutions",
+    "tr": "Gelişmiş Kimyasal Çözümler",
+    "ru": "Передовые химические решения",
+    "zhcn": "先进化学解决方案",
+    "he": "פתרונות כימיים מתקדמים",
+    "ar": "حلول كيميائية متقدمة",
+    "az": "İnkişaf etmiş Kimyəvi Həllər"
   },
   "heropageinfonext": {
-    "en":       "for Modern Industries",
-    "tr":       "Modern Sanayiler için",
-    "ru":       "Для современных отраслей",
-    "zhcn":    "面向现代工业而设计"
+    "en": "for Modern Industries",
+    "tr": "Modern Sanayiler için",
+    "ru": "Для современных отраслей",
+    "zhcn": "面向现代工业而设计",
+    "he": "לתעשיות מודרניות",
+    "ar": "لصناعات حديثة",
+    "az": "Müasir Sənayelər üçün"
   },
   "supportinfo": {
-    "en":       "Providing high-quality chemical products and technical expertise to support your manufacturing processes and research needs.",
-    "tr":       "Yüksek kaliteli kimyasal ürünler ve teknik uzmanlık sağlayarak, üretim süreçlerinizi ve araştırma ihtiyaçlarınızı destekliyoruz.",
-    "ru":       "Предоставляем высококачественные химические продукты и техническую экспертизу для поддержки ваших производственных процессов и исследовательских потребностей.",
-    "zhcn":     "提供高质量的化学产品和技术专长，以支持您的生产流程和研究需求。"
+    "en": "Providing high-quality chemical products and technical expertise to support your manufacturing processes and research needs.",
+    "tr": "Yüksek kaliteli kimyasal ürünler ve teknik uzmanlık sağlayarak, üretim süreçlerinizi ve araştırma ihtiyaçlarınızı destekliyoruz.",
+    "ru": "Предоставляем высококачественные химические продукты и техническую экспертизу для поддержки ваших производственных процессов и исследовательских потребностей.",
+    "zhcn": "提供高质量的化学产品和技术专长，以支持您的生产流程和研究需求。",
+    "he": "אנו מספקים מוצרים כימיים באיכות גבוהה ומומחיות טכנית לתמיכה בתהליכי הייצור ובצרכי המחקר שלכם.",
+    "ar": "نقدم منتجات كيميائية عالية الجودة وخبرة تقنية لدعم عمليات التصنيع واحتياجات البحث الخاصة بك.",
+    "az": "Yüksək keyfiyyətli kimyəvi məhsullar və texniki ekspertiza təqdim edərək istehsal proseslərinizi və tədqiqat ehtiyaclarınızı dəstəkləyirik."
   },
-
   "buton": {
-    "en":       "Explore Products",
-    "tr":       "Ürünleri Keşfedin",
-    "ru":       "Изучить продукты",
-    "zhcn":     "探索产品"
+    "en": "Explore Products",
+    "tr": "Ürünleri Keşfedin",
+    "ru": "Изучить продукты",
+    "zhcn": "探索产品",
+    "he": "חקור מוצרים",
+    "ar": "استكشاف المنتجات",
+    "az": "Məhsulları Kəşf Et"
   },
-
   "butonabout": {
-    "en":       "About Our Company",
-    "tr":       "Şirketimiz Hakkında",
-    "ru":       "О нашей компании",
-    "zhcn":     "关于我们公司"
+    "en": "About Our Company",
+    "tr": "Şirketimiz Hakkında",
+    "ru": "О нашей компании",
+    "zhcn": "关于我们公司",
+    "he": "אודות החברה שלנו",
+    "ar": "عن شركتنا",
+    "az": "Şirkətimiz Haqqında"
   }
-  
 }

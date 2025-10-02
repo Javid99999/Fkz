@@ -1,9 +1,10 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { LocalizedText, Productt } from '@/types';
-import { Link, router } from '@inertiajs/react';
+import { Productt } from '@/types';
+import { Link } from '@inertiajs/react';
 import React, { useState } from 'react';
+import cardlang from '../../lang/productcard_lang.json'
 import { useLang } from '../ContextHelper/LanguageContext';
 
 
@@ -13,32 +14,13 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
+    const { lang } = useLang();
     const [showFull, setShowFull] = useState(false);
     
-    const DESCRIPTION_LIMIT = 88;
+    const DESCRIPTION_LIMIT = 68;
 
 
-    let fullDesc = '';
-
-    // 1. description varsa
-    if (product.description) {
-    // 2. description string ise direkt al
-    if (typeof product.description === 'string') {
-        fullDesc = product.description;
-    } else {
-        // 3. lang varsa ve string ise al
-        const langVal = product.lang ? product.description[product.lang] : undefined;
-        if (typeof langVal === 'string' && langVal.length > 0) {
-        fullDesc = langVal;
-        } else {
-        // 4. fallback: LocalizedText objesindeki herhangi bir string değeri al
-        const firstString = Object.values(product.description).find(
-            (v) => typeof v === 'string' && v.length > 0
-        );
-        fullDesc = firstString ?? '';
-        }
-    }
-    }
+    let fullDesc = product.description;
 
     const displayedDesc =
     fullDesc.length > DESCRIPTION_LIMIT && !showFull
@@ -47,12 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
     const toggleDesc = () => setShowFull(!showFull);
 
-
-    const { lang } = useLang();
-
-    // const lang = product.lang
-
-    const imageUrl = product.image_url ?? '/placeholder.jpg';
+    const imageUrl = product.image_url ?  product.image_url :'/imgs/productimagecomingsoon.jpeg';
 
   return (
 
@@ -63,20 +40,21 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="relative h-48 bg-muted">
             <img
                 src={imageUrl}
-                alt={product.name as unknown as string}
+                alt={product.name}
                 className="w-full h-full object-cover"
+                loading='lazy'
             />
         </div>
             <CardContent className="flex-1 flex flex-col">
                 <div className="flex-1">
                     <h3 className="font-semibold text-lg">
-                    {product.name as unknown as string}
+                    {product.name}
                     </h3>
                     <div className="mt-2 mb-4 ml-1 text-sm text-muted flex space-x-2">
                         <h2 className='text-primary font-bold text-sm'>CAS: {product.cas_num}</h2>
                     </div>
                     <div className="flex items-center gap-2 mt-1">
-                        <Badge variant="outline">{product.catag.name[lang]}</Badge>
+                        <Badge variant="outline">{product.catag.name}</Badge>
                         
                         {/* <Badge variant="outline">{product.form}</Badge> */}
                         {/* <Badge variant="outline">{product.purity}</Badge> */}
@@ -88,7 +66,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                                 className="ml-1 text-primary font-semibold text-sm underline"
                                 onClick={toggleDesc}
                             >
-                                {showFull ? 'Show Less' : 'Read More'}
+                                {showFull ? cardlang.showLess[lang] ?? cardlang.showLess.en : cardlang.readMore[lang] ?? cardlang.readMore.en}
                             </button>
                         )}
                     </div>
@@ -98,13 +76,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
                 {/* Packaging her zaman en altta */}
                 <div className="m-auto ml-2 flex text-sm  text-muted-foreground space-x-2">
-                    <h2 className='text-primary font-bold font-xs'>Packaging:</h2>
-                    <p>Available in: {product.packaging as unknown as string}</p>
+                    <h2 className='text-primary font-bold font-xs'>{cardlang.packaging[lang] ?? cardlang.packaging.en}:</h2>
+                    <p>{cardlang.availableIn[lang] ?? cardlang.availableIn.en}: {product.packaging}</p>
                 </div>
 
                 <div className="mt-2 flex items-center justify-end">
                     <Link href={route('products.show', product.id)}>
-                        <Button className='mb-4' size="sm">View Details</Button>
+                        <Button className='mb-4' size="sm">{cardlang.viewDetails[lang] ?? cardlang.viewDetails.en}</Button>
                     </Link>
                 </div>
             </CardContent>

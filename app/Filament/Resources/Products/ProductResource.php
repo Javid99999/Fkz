@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Products;
 
 use App\Enum\ValueParseType;
+use App\Filament\Resources\DeliveryMethods\RelationManagers\DeliveryMethodsRelationManager;
 use App\Filament\Resources\Products\Pages\CreateProduct;
 use App\Filament\Resources\Products\Pages\EditProduct;
 use App\Filament\Resources\Products\Pages\ListProducts;
@@ -34,7 +35,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            \App\Filament\Resources\Products\RelationManagers\DeliveryMethodsRelationManager::class
         ];
     }
 

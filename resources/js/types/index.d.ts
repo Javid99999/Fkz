@@ -7,7 +7,7 @@ export type LangCode = 'en' | 'tr' | 'ru' | 'zhcn';
 export type LocalizedText = {
   // en: string;
   // tr: string;
-  [key in LangCode]?: string | undefined;
+  [key in LangCode]?: string;
 };
 
 
@@ -74,14 +74,12 @@ export interface NavItem {
 
 export interface TagCategory {
   id: number;
-  name: LocalizedText;
-  lang: keyof LocalizedText;
+  name: string;
 }
 
 export interface NewTagCategory {
   id: number;
-  name: LocalizedText;
-  lang: keyof LocalizedText;
+  name: string;
 }
 
 
@@ -89,15 +87,15 @@ export interface NewTagCategory {
 export interface Unit
 {
     id: number;
-    unit: LocalizedText;
+    unit: string;
 }
 
 export interface ProductPropertyValue
 {
     id: number;
-    name: LocalizedText;
+    name: string;
     prop_value_type: string;
-    value: LocalizedText;
+    value: string;
     numeric: number;
     type:string;
     unit: Unit;
@@ -106,17 +104,15 @@ export interface ProductPropertyValue
 
 export interface Productt {
     id: number;
-    name: LocalizedText;
+    name: string;
     cas_num: string;
-    description: LocalizedText;
-    packaging: LocalizedText;
+    description: string;
+    packaging: string;
     catag: TagCategory;
     property: ProductPropertyValue
     catag: TagCategory;
     country: Country | null;
     image_url: string | null;
-    lang: keyof LocalizedText;
-
 }
 
 export interface Statemeents
@@ -131,11 +127,11 @@ export interface Securecode
 {
   id: number;
   code: string | null;
-  description: LocalizedText | string;
+  description: string;
 }
 export interface Classification
 {
-    // id: number;
+    id: number;
     name: string;
 }
 
@@ -149,17 +145,17 @@ export interface Country
 export interface Picto
 {
   id: number,
-  name: LocalizedText;
+  name: string;
   code: string,
   symbol: string,
 }
 
 export interface ProductType {
     id: number;
-    name: LocalizedText;
+    name: string;
     cas_number: string;
-    description: LocalizedText;
-    packaging: LocalizedText;
+    description: string;
+    packaging: string;
     country: Country | null;
     classification: Classification[];
     statements: Statemeents[];
@@ -167,6 +163,97 @@ export interface ProductType {
     picto: Picto[];
     img_url: string[];
     lang: keyof LocalizedText;
+}
+
+
+export interface Responsibilities{
+  id: number;
+  responsi_type: string;
+  responsibility: string;
+}
+
+export interface Extra{
+  additional_cost: number;
+  currency: string;
+  availability_type: string;
+  location_name: string;
+  custom_notes: string;
+  specific_details: string;
+  custom_attributes: string;
+  estimated_days_min: number;
+  estimated_days_max: number;
+
+}
+
+export interface Countryy
+{
+  id: number;
+  name: string;
+}
+
+export interface DeliveryType {
+  id: number;
+  code: string;
+  expansion: string;
+  description: string;
+  responsib: Responsibilities[];
+  extradetail: Extra;
+  countryship: Country[];
+}
+
+export interface ProductTerms {
+  id: number;
+  name: string;
+  description: string;
+  color: string;
+}
+
+export interface DeliveryPayload
+{
+  delivery_methods: DeliveryType[];
+  available_countries: Countryy[];
+  productTerms: ProductTerms[];
+}
+
+export interface LoadSend
+{
+  deliver: string;
+  loading: string;
+}
+
+export interface Packaging
+{
+  id: number;
+  packs: string;
+}
+
+export interface ReqDocks
+{
+  id: number;
+  name: string;
+  description: string;
+}
+
+export interface MediaPayload
+{
+  docs: MediaDocs[];
+}
+
+
+export interface MediaDocs
+{
+  url: string;
+  name: string;
+}
+
+
+export interface ShippingPayload
+{
+
+  loadsend: LoadSend;
+  wrapping: Packaging[];
+  reqdocks: ReqDocks[];
+  country: Countryy;
 }
 
 
@@ -183,11 +270,10 @@ export interface PageProps {
 export interface BasicProductInfo
 {
   id:number,
-  name:LocalizedText;
-  description:LocalizedText;
+  name:string;
+  description:string;
   category: NewTagCategory;
   img_url: string;
-  lang: keyof LocalizedText;
 }
 
 
@@ -199,4 +285,9 @@ export interface ProductPageProps {
 }
 
 
+export interface Delivery {
+  info: string;
+  lang: keyof LocalizedText;
+  // [key: string]: any;
+}
 

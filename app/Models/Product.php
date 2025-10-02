@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
@@ -22,7 +24,8 @@ class Product extends Model implements HasMedia
         'description',
         'packaging',
         'country_id',
-        'category_id'
+        'category_id',
+        'delivery_info_id'
     ];
 
 
@@ -46,6 +49,8 @@ class Product extends Model implements HasMedia
         $this->addMediaCollection('vitrin')
             ->singleFile()
             ->useDisk('public');
+        $this->addMediaCollection('pdfs')
+              ->acceptsMimeTypes(['application/pdf']);
     }
 
 
@@ -91,6 +96,7 @@ class Product extends Model implements HasMedia
     //     return $multiple ? $urls->toArray() : $urls->first();
     // }
 
+    
 
 
     public function mediaUrls(string $collectionName): string|array|null
@@ -108,6 +114,13 @@ class Product extends Model implements HasMedia
 
         if ($collectionName === 'detailfoto') {
             return $mediaItems->map(fn($media) => $media->getUrl('detail'))->toArray();
+        }
+
+        if($collectionName === 'pdfs'){
+            return $mediaItems->map(fn($media) => [
+                'url' => $media->getUrl(),
+                'name' => $media->name,
+            ])->toArray();
         }
 
         // Diğer koleksiyonlar için orijinal URL
@@ -289,9 +302,31 @@ class Product extends Model implements HasMedia
     }
 
 
-    
-    
 
+
+    public function deliveryMethods()
+    {
+        return $this->belongsToMany(DeliveryMethod::class, 'product_delivery_methods')
+                    ->using(ProductDeliveryMethod::class)
+                    ->withPivot([
+                        'additional_cost', 
+                        'currency', 
+                        'estimated_days_min', 
+                        'estimated_days_max', 
+                        'custom_notes', 
+                        'custom_attributes',
+                        'availability_type',
+                        'location_code',
+                        'location_name',
+                        'specific_details'
+                    ]);
+    }
+
+
+    public function productDeliveryMethods()
+    {
+        return $this->hasMany(ProductDeliveryMethod::class);
+    }
 
     public function category()
     {
@@ -314,6 +349,33 @@ class Product extends Model implements HasMedia
             ->withPivot('risk_level_id');
     }
 
+
+
+    public function productCountryShipment():BelongsToMany
+    {
+        return $this->belongsToMany(Country::class, 'product_countries');
+    }
+
+    public function productTerms():BelongsToMany
+    {
+        return $this->belongsToMany(Term::class,'product_terms');
+    }
+
+
+    public function requireDoc()
+    {
+        return $this->belongsToMany(Requirement::class, 'product_requirements');
+    }
+
+    public function productPackaging()
+    {
+        return $this->belongsToMany(Packaging::class, 'product_packagings');
+    }
+
+    public function deliverInfo()
+    {
+        return $this->belongsTo(DeliveryInfo::class, 'delivery_info_id');
+    }
 
 
     public function getNameEnAttribute()
@@ -409,6 +471,8 @@ class Product extends Model implements HasMedia
     //     });
     // }
 
+  
+
     protected static function booted()
     {
 
@@ -432,7 +496,10 @@ class Product extends Model implements HasMedia
             // Vitrin farklıysa temizle ve ilk resmi kopyala
             $record->clearMediaCollection('vitrin');
             $firstDetail->copy($record, 'vitrin');
+            
+            
         });
+        
 
 
     }

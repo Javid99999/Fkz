@@ -1,26 +1,31 @@
 {
-
-    "preperedforcall":{
-        "en":       "Ready to discuss your chemical needs",
-        "tr":       "Kimyasal ihtiyaçlarınızı görüşmeye hazırız",
-        "ru":       "Готовы обсудить ваши химические потребности",
-        "zhcn":     "准备好讨论您的化学需求"
+    "preperedforcall": {
+        "en": "Ready to discuss your chemical needs",
+        "tr": "Kimyasal ihtiyaçlarınızı görüşmeye hazırız",
+        "ru": "Готовы обсудить ваши химические потребности",
+        "zhcn": "准备好讨论您的化学需求",
+        "he": "מוכן לדון בצרכי הכימיקלים שלכם",
+        "ar": "جاهز لمناقشة احتياجاتك الكيميائية",
+        "az": "Kimyəvi ehtiyaclarınızı müzakirə etməyə hazırıq"
     },
 
     "techteam": {
-        "en":       "Our technical team is available to help you find the right products for your specific applications.",
-        "tr":       "Teknik ekibimiz, özel uygulamalarınız için doğru ürünleri bulmanıza yardımcı olmaya hazırdır.",
-        "ru":       "Наша техническая команда готова помочь вам подобрать подходящие продукты для ваших конкретных применений.",
-        "zhcn":     "我们的技术团队随时为您提供帮助，协助您找到适合您特定应用的产品。"
+        "en": "Our technical team is available to help you find the right products for your specific applications.",
+        "tr": "Teknik ekibimiz, özel uygulamalarınız için doğru ürünleri bulmanıza yardımcı olmaya hazırdır.",
+        "ru": "Наша техническая команда готова помочь вам подобрать подходящие продукты для ваших конкретных применений.",
+        "zhcn": "我们的技术团队随时为您提供帮助，协助您找到适合您特定应用的产品。",
+        "he": "הצוות הטכני שלנו זמין כדי לעזור לכם למצוא את המוצרים המתאימים ליישומים הספציפיים שלכם.",
+        "ar": "فريقنا الفني متاح لمساعدتك في العثور على المنتجات المناسبة لتطبيقاتك الخاصة.",
+        "az": "Texniki komandamız, xüsusi tətbiqləriniz üçün doğru məhsulları tapmaqda sizə kömək etməyə hazırdır."
     },
 
-    "contactustoday":{
-        "en":       "Contact Us Today",
-        "tr":       "Bizimle bugün iletişime geçin",
-        "ru":       "Свяжитесь с нами сегодня",
-        "zhcn":     "今天就联系我们"
+    "contactustoday": {
+        "en": "Contact Us Today",
+        "tr": "Bizimle bugün iletişime geçin",
+        "ru": "Свяжитесь с нами сегодня",
+        "zhcn": "今天就联系我们",
+        "he": "צור קשר עוד היום",
+        "ar": "اتصل بنا اليوم",
+        "az": "Bu gün bizimlə əlaqə saxlayın"
     }
-
-
-
 }

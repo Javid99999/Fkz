@@ -1,58 +1,81 @@
 {
-    "whyus":{
-        "en":       "Why Choose Fks",
-        "tr":       "Neden Fks’yi Seçmelisiniz",
-        "ru":       "Почему выбирают Fks",
-        "zhcn":     "为什么选择Fks"
+    "whyus": {
+        "en": "Why Choose Fks",
+        "tr": "Neden Fks’yi Tercih Etmelisiniz",
+        "ru": "Почему выбирают Fks",
+        "zhcn": "为何选择 Fks",
+        "he": "מדוע לבחור ב-Fks",
+        "ar": "لماذا تختار Fks كخيارك الأمثل",
+        "az": "Niyə Fks-i seçməlisiniz"
     },
 
-    "tellswhy":{
-        "en":       "We combine industry expertise with cutting-edge chemical solutions to deliver exceptional value",
-        "tr":       "Sektör uzmanlığını ileri düzey kimyasal çözümlerle birleştirerek olağanüstü değer sunuyoruz.",
-        "ru":       "Мы объединяем отраслевой опыт с передовыми химическими решениями, чтобы обеспечить исключительную ценность.",
-        "zhcn":     "我们将行业专业知识与先进的化学解决方案相结合，以提供卓越的价值。"
+    "tellswhy": {
+        "en": "We combine industry expertise with advanced chemical solutions to deliver exceptional value.",
+        "tr": "Sektör tecrübemizi ileri teknoloji kimyasal çözümlerle birleştirerek üstün değer sunuyoruz.",
+        "ru": "Мы объединяем отраслевой опыт с передовыми химическими решениями, чтобы обеспечить исключительную ценность.",
+        "zhcn": "我们将行业经验与先进的化学解决方案相结合，以提供卓越价值。",
+        "he": "אנחנו משלבים מומחיות תעשייתית עם פתרונות כימיים מתקדמים כדי לספק ערך יוצא דופן ומקצועי",
+        "ar": "نحن نجمع بين الخبرة الصناعية والحلول الكيميائية المتقدمة لتقديم قيمة استثنائية ومهنية",
+        "az": "Sənaye təcrübəmizi qabaqcıl kimyəvi həllərlə birləşdirərək üstün və professional dəyər təqdim edirik"
     },
 
-    "reasonsF":{
-        "en":       "Premium Quality",
-        "tr":       "Üstün Kalite",
-        "ru":       "Премиальное качество",
-        "zhcn":     "优质品质"
+    "reasonsF": {
+        "en": "Premium Quality",
+        "tr": "Üstün Kalite",
+        "ru": "Премиальное качество",
+        "zhcn": "卓越品质",
+        "he": "איכות פרימיום",
+        "ar": "جودة ممتازة",
+        "az": "Premium Keyfiyyət"
     },
 
-    "reasonsFinfo":{
-        "en":       "All our products undergo rigorous quality control to ensure the highest standards of purity and performance.",
-        "tr":       "Tüm ürünlerimiz, en yüksek saflık ve performans standartlarını sağlamak için titiz kalite kontrolünden geçer.",
-        "ru":       "Вся наша продукция проходит строгий контроль качества, чтобы обеспечить высочайшие стандарты чистоты и эффективности.",
-        "zhcn":     "我们所有的产品都经过严格的质量控制，以确保最高标准的纯度和性能。"
+    "reasonsFinfo": {
+        "en": "All our products undergo strict quality control to ensure the highest standards of purity and performance.",
+        "tr": "Tüm ürünlerimiz, en yüksek saflık ve performans standartlarını sağlamak için sıkı kalite kontrolünden geçer.",
+        "ru": "Вся наша продукция проходит строгий контроль качества для обеспечения наивысших стандартов чистоты и эффективности.",
+        "zhcn": "我们所有的产品都经过严格的质量控制，以确保最高的纯度和性能标准。",
+        "he": "כל המוצרים שלנו עוברים בקרת איכות קפדנית כדי להבטיח את הסטנדרטים הגבוהים ביותר של ניקיון וביצועים.",
+        "ar": "جميع منتجاتنا تخضع لمراقبة جودة صارمة لضمان أعلى معايير النقاء والأداء.",
+        "az": "Bütün məhsullarımız ən yüksək saflıq və performans standartlarını təmin etmək üçün ciddi keyfiyyət yoxlamasından keçir."
     },
 
-    "reasonsS":{
-        "en":       "Safety First",
-        "tr":       "Önce Güvenlik",
-        "ru":       "Безопасность прежде всего",
-        "zhcn":     "安全第一"
+    "reasonsS": {
+        "en": "Safety First",
+        "tr": "Güvenlik Önceliğimizdir",
+        "ru": "Безопасность прежде всего",
+        "zhcn": "安全至上",
+        "he": "בטיחות קודם כל",
+        "ar": "السلامة أولاً",
+        "az": "Təhlükəsizlik Əvvəldir"
     },
 
-    "reasonsSinfo":{
-        "en":       "We prioritize safety in all aspects of our operations, from product development to handling and transportation.",
-        "tr":       "Ürün geliştirmeden taşımaya ve kullanıma kadar tüm operasyonlarımızda güvenliği önceliklendiriyoruz.",
-        "ru":       "Мы ставим безопасность в приоритет во всех аспектах нашей деятельности — от разработки продукции до её обработки и транспортировки.",
-        "zhcn":     "我们在运营的各个环节都将安全放在首位，从产品开发到处理和运输。"
+    "reasonsSinfo": {
+        "en": "We prioritize safety in all aspects of our operations, from product development to handling and transportation.",
+        "tr": "Ürün geliştirmeden taşımaya kadar tüm operasyonlarımızda güvenliği önceliklendiriyoruz.",
+        "ru": "Мы ставим безопасность во главу угла во всех аспектах нашей деятельности — от разработки продукта до обработки и транспортировки.",
+        "zhcn": "我们在运营的各个环节都将安全放在首位，从产品开发到处理和运输。",
+        "he": "אנו שמים את הבטיחות בראש סדר העדיפויות בכל ההיבטים של הפעילות שלנו, מפיתוח המוצר ועד הטיפול וההובלה.",
+        "ar": "نحن نعطي الأولوية للسلامة في جميع جوانب عملياتنا، من تطوير المنتج إلى التعامل والنقل.",
+        "az": "Təhlükəsizliyi əməliyyatlarımızın bütün mərhələlərində prioritet olaraq saxlayırıq, məhsul inkişafından daşınma və istifadə qədər."
     },
 
-    "reasonsTh":{
-        "en":       "Reliable Supply",
-        "tr":       "Güvenilir Tedarik",
-        "ru":       "Надежное снабжение",
-        "zhcn":     "可靠供应"
+    "reasonsTh": {
+        "en": "Reliable Supply",
+        "tr": "Güvenilir Tedarik",
+        "ru": "Надежное снабжение",
+        "zhcn": "可靠供应",
+        "he": "אספקה אמינה",
+        "ar": "توريد موثوق",
+        "az": "Etibarlı Təchizat"
     },
 
-    "reasonsThinfo":{
-        "en":       "Our efficient supply chain ensures timely delivery of products to meet your production schedules.",
-        "tr":       "Verimli tedarik zincirimiz, ürünlerin üretim takviminize uygun şekilde zamanında teslim edilmesini sağlar.",
-        "ru":       "Наша эффективная цепочка поставок обеспечивает своевременную доставку продукции в соответствии с вашими производственными графиками.",
-        "zhcn":     "我们高效的供应链确保产品按时交付，以满足您的生产计划。"
+    "reasonsThinfo": {
+        "en": "Our efficient supply chain ensures timely delivery of products to meet your production schedules.",
+        "tr": "Verimli tedarik zincirimiz, ürünlerin üretim programınıza uygun şekilde zamanında teslim edilmesini sağlar.",
+        "ru": "Наша эффективная цепочка поставок обеспечивает своевременную доставку продукции в соответствии с вашим производственным графиком.",
+        "zhcn": "我们高效的供应链确保按时交付产品，以满足您的生产计划。",
+        "he": "שרשרת האספקה היעילה שלנו מבטיחה אספקה בזמן של המוצרים כדי לעמוד בלוחות הזמנים של הייצור שלכם.",
+        "ar": "تضمن سلسلة التوريد الفعالة لدينا تسليم المنتجات في الوقت المناسب لتلبية جداول الإنتاج الخاصة بك.",
+        "az": "Effektiv təchizat zəncirimiz məhsulların istehsal cədvəlinizə uyğun vaxtında çatdırılmasını təmin edir."
     }
-
 }

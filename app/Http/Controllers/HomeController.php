@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CertificationResource;
+use App\Http\Resources\ExpertiseResource;
+use App\Http\Resources\FacilityRecource;
 use App\Http\Resources\FuturedProductResource;
 use App\Http\Resources\ProductResource;
+use App\Models\Certification;
+use App\Models\Experrtise;
+use App\Models\Facility;
 use App\Models\Product;
 use App\Models\Statement;
 use DB;
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 class HomeController extends Controller
@@ -14,8 +21,19 @@ class HomeController extends Controller
 
 
 
-    public function home()
+    public function home(Request $request)
     {
+
+        $tab = $request->get('tab', 'expertise');
+
+        $data = match ($tab) {
+        'expertise' => new ExpertiseResource(Experrtise::with('media')->first()),
+        'facilities' => new FacilityRecource(Facility::with('media')->first()),
+        'certifications' => new CertificationResource(Certification::with('media')->first()),
+        default => new ExpertiseResource(Experrtise::with('media')->first()),
+    };
+
+
         $query = Product::with('media', 'category')
                    ->inRandomOrder()
                    ->take(5)
@@ -23,7 +41,7 @@ class HomeController extends Controller
 
         $products = FuturedProductResource::collection($query)->response()->getData(true)['data'];
 
-        return Inertia::render('welcome',['products' => $products]);
+        return Inertia::render('welcome',['products' => $products, 'tab' => $tab, 'overview' => $data]);
     }
 
 

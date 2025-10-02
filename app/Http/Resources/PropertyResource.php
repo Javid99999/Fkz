@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\App;
 
 class PropertyResource extends JsonResource
 {
@@ -14,14 +15,15 @@ class PropertyResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'prop_value_type' => $this->pivot->value_parse_type,
-            'value' => $this->pivot->value,
-            'numeric' => $this->pivot->numeric,
+            'name' => $this->property?->name,
+            'prop_value_type' => $this->value_parse_type,
+            'value' => $this->value,
+            'numeric' => $this->numeric,
             'type' => $this->property_type,
-            'unit' => ['id' => $this->unit_id, 'unit' => json_decode($this->unit_name)]
+            'unit' => new UnitResource($this->whenLoaded('unit'))
         ];
     }
 }

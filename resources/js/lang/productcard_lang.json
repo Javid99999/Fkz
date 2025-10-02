@@ -1,0 +1,54 @@
+{
+
+    "packaging":{
+        "en": "Packaging",
+        "tr": "Ambalaj",
+        "ru": "Упаковка",
+        "zhcn": "包装",
+        "he": "אריזה",
+        "ar": "التعبئة",
+        "az": "Qablaşdırma"
+    },
+    "availableIn":{
+        "en": "Available in",
+        "tr": "Mevcut Ambalajlar",
+        "ru": "Доступно в упаковках",
+        "zhcn": "提供包装规格",
+        "he": "זמין באריזות",
+        "ar": "متوفر بعبوات",
+        "az": "Mövcud Qablaşdırmalar"
+    },
+
+    "viewDetails":{
+        "en": "View Details",
+        "tr": "Detayları Görüntüle",
+        "ru": "Посмотреть детали",
+        "zhcn": "查看详情",
+        "he": "הצג פרטים",
+        "ar": "عرض التفاصيل",
+        "az": "Detallara Bax"
+    },
+    "showLess":{
+        "en": "Show Less",
+        "tr": "Az Göster",
+        "ru": "Показать меньше",
+        "zhcn": "显示部分内容",
+        "he": "הצג פחות",
+        "ar": "عرض جزء أقل",
+        "az": "Az Göstər"
+    },
+    "readMore":{
+        "en": "Read More",
+        "tr": "Devamını Oku",
+        "ru": "Читать далее",
+        "zhcn": "阅读更多",
+        "he": "קרא עוד",
+        "ar": "اقرأ المزيد",
+        "az": "Davamını Oxu"
+    }
+
+
+
+
+
+}

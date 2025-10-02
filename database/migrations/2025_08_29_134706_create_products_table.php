@@ -17,10 +17,12 @@ return new class extends Migration
             $table->string('cas_number', 12);
             $table->json('description');
             $table->json('packaging')->nullable();
+            $table->boolean('editors_choice')->default(false);
+
             
             $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
-
+            $table->foreignId('delivery_info_id')->nullable()->constrained('delivery_infos')->cascadeOnDelete();
 
             $table->string('name_az')->storedAs("JSON_UNQUOTE(JSON_EXTRACT(`name`, '$.az'))");
             $table->index('name_az', 'idx_name_az');

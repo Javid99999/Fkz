@@ -1,61 +1,81 @@
 {
-
-    "productcatalog":{
-        "en":       "Product Catalog",
-        "tr":       "Ürün Kataloğu",
-        "ru":       "Каталог продукции",
-        "zhcn":     "产品目录"
+    "productcatalog": {
+        "en": "Product Catalog",
+        "tr": "Ürün Kataloğu",
+        "ru": "Каталог продукции",
+        "zhcn": "产品目录",
+        "he": "קטלוג מוצרים",
+        "ar": "كتالوج المنتجات",
+        "az": "Məhsul Kataloqu"
     },
 
-    "browseproduct":{
-        "en":       "Browse our comprehensive range of chemical products",
-        "tr":       "Kapsamlı kimyasal ürün yelpazemizi inceleyin",
-        "ru":       "Просмотрите наш широкий ассортимент химических продуктов",
-        "zhcn":     "浏览我们全面的化学产品系列"
+    "browseproduct": {
+        "en": "Browse our comprehensive range of chemical products",
+        "tr": "Kapsamlı kimyasal ürün yelpazemizi inceleyin",
+        "ru": "Просмотрите наш широкий ассортимент химических продуктов",
+        "zhcn": "浏览我们全面的化学产品系列",
+        "he": "עיין במגוון המקיף שלנו של מוצרים כימיים",
+        "ar": "تصفح مجموعتنا الشاملة من المنتجات الكيميائية",
+        "az": "Kapsamlı kimyəvi məhsul çeşidimizi nəzərdən keçirin"
     },
 
-    "searchpro":{
-        "en":       "Search products...",
-        "tr":       "Ürünlerde Ara...",
-        "ru":       "Поиск продуктов...",
-        "zhcn":         "搜索产品..."
+    "searchpro": {
+        "en": "Search products by name or by CAS number...",
+        "tr": "Ürünleri isim veya CAS numarasına göre ara...",
+        "ru": "Поиск продуктов по названию или номеру CAS...",
+        "zhcn": "按名称或CAS号搜索产品...",
+        "he": "חפש מוצרים לפי שם או מספר CAS...",
+        "ar": "ابحث عن المنتجات بالاسم أو رقم CAS...",
+        "az": "Məhsulları ad və ya CAS nömrəsinə görə axtar..."
     },
 
-    "filters":{
-        "en":       "Filters",
-        "tr":       "Filtreler",
-        "ru":       "Фильтры",
-        "zhcn":     "筛选"
+    "filters": {
+        "en": "Filters",
+        "tr": "Filtreler",
+        "ru": "Фильтры",
+        "zhcn": "筛选",
+        "he": "מסננים",
+        "ar": "الفلاتر",
+        "az": "Filtrlər"
     },
 
-    "clearall":{
-        "en":       "Clear all",
-        "tr":       "Tümünü Temizle",
-        "ru":       "Очистить всё",
-        "zhcn":     "清除全部"
+    "clearall": {
+        "en": "Clear all",
+        "tr": "Tümünü Temizle",
+        "ru": "Очистить всё",
+        "zhcn": "清除全部",
+        "he": "נקה הכל",
+        "ar": "مسح الكل",
+        "az": "Hamısını Təmizlə"
     },
 
-    "categoryies":{
-        "en":       "Categories",
-        "tr":       "Kategoriler",
-        "ru":       "Категории",
-        "zhcn":     "类别"
+    "categoryies": {
+        "en": "Categories",
+        "tr": "Kategoriler",
+        "ru": "Категории",
+        "zhcn": "类别",
+        "he": "קטגוריות",
+        "ar": "الفئات",
+        "az": "Kateqoriyalar"
     },
 
-    "ifnoproduct":{
-        "en":       "No products found",
-        "tr":       "Ürün bulunamadı",
-        "ru":       "Продукты не найдены",
-        "zhcn":     "未找到产品"
+    "ifnoproduct": {
+        "en": "No products found",
+        "tr": "Ürün bulunamadı",
+        "ru": "Продукты не найдены",
+        "zhcn": "未找到产品",
+        "he": "לא נמצאו מוצרים",
+        "ar": "لم يتم العثور على منتجات",
+        "az": "Məhsul tapılmadı"
     },
 
-    "tryadjustfilter":{
-        "en":       "Try adjusting your filters",
-        "tr":       "Filtrelerinizi ayarlamayı deneyin",
-        "ru":       "Попробуйте изменить фильтры",
-        "zhcn":     "尝试调整您的筛选条件"
+    "tryadjustfilter": {
+        "en": "Try adjusting your filters",
+        "tr": "Filtrelerinizi ayarlamayı deneyin",
+        "ru": "Попробуйте изменить фильтры",
+        "zhcn": "尝试调整您的筛选条件",
+        "he": "נסה להתאים את המסננים שלך",
+        "ar": "حاول تعديل الفلاتر الخاصة بك",
+        "az": "Filtrlərinizi tənzimləməyi sınayın"
     }
-
-
-
 }

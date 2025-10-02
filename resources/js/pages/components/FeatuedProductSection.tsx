@@ -32,21 +32,21 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                             <Card key={product.id} className="overflow-hidden flex flex-col h-full">
                                 <div className="aspect-video w-full overflow-hidden">
                                     <img
-                                        src={product.img_url}
-                                        alt={product.name[lang]}
+                                        src={product.img_url ?? '/imgs/productimagecomingsoon.jpeg'}
+                                        alt={product.name}
                                         className="w-full h-full object-cover transition-transform hover:scale-105"
                                     />
                                 </div>
                                 <CardContent className="flex flex-col flex-1 p-4 sm:p-6 sm:pt-0">
                                     <div className="flex flex-col flex-1">
                                         <span className="text-sm text-primary font-medium pb-4">
-                                            {product.category.name[lang] ?? product.category.name.en}
+                                            {product.category.name}
                                         </span>
                                         <h3 className="text-xl font-semibold mb-2">
-                                            {product.name[lang] ?? product.name.en}
+                                            {product.name}
                                         </h3>
                                         <p className="text-muted-foreground">
-                                            {product.description[lang] ?? product.description.en}
+                                            {product.description}
                                         </p>
                                     </div>
 
@@ -54,7 +54,7 @@ export const FeatuedProductSection: React.FC<Props> = ({ products }) => {
                                     <div className="mt-6">
                                         <Button variant="outline" className="w-full sm:w-auto" asChild>
                                             <Link href={route('products.show', product.id)}>
-                                            {langfeture.detailview[lang] ?? langfeture.detailview.en} Detail
+                                            {langfeture.detailview[lang] ?? langfeture.detailview.en}
                                             </Link>
                                         </Button>
                                     </div>

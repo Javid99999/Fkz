@@ -1,34 +1,41 @@
 {
-
-
   "fetureinfo": {
-    "en":       "Featured Products",
-    "tr":       "Öne Çıkan Ürünler",
-    "ru":       "Рекомендуемые продукты",
-    "zhcn":     "精选产品"
+    "en": "Featured Products",
+    "tr": "Öne Çıkan Ürünler",
+    "ru": "Рекомендуемые продукты",
+    "zhcn": "精选产品",
+    "he": "מוצרים מובילים",
+    "ar": "المنتجات المميزة",
+    "az": "Seçilmiş Məhsullar"
   },
 
   "dicover": {
-    "en":       "Discover our most popular chemical solutions",
-    "tr":       "En popüler kimyasal çözümlerimizi keşfedin",
-    "ru":       "Откройте для себя наши самые популярные химические решения",
-    "zhcn":     "探索我们最受欢迎的化学解决方案"
+    "en": "Discover our most popular chemical solutions",
+    "tr": "En popüler kimyasal çözümlerimizi keşfedin",
+    "ru": "Откройте для себя наши самые популярные химические решения",
+    "zhcn": "探索我们最受欢迎的化学解决方案",
+    "he": "גלה את הפתרונות הכימיים הפופולריים ביותר שלנו",
+    "ar": "اكتشف أكثر الحلول الكيميائية شيوعًا لدينا",
+    "az": "Ən populyar kimyəvi həllərimizi kəşf edin"
   },
 
   "detailview": {
-    "en":       "View Details",
-    "tr":       "Detayları Görüntüle",
-    "ru":       "Посмотреть детали",
-    "zhcn":     "查看详情"
-
+    "en": "View Details",
+    "tr": "Detayları Görüntüle",
+    "ru": "Посмотреть детали",
+    "zhcn": "查看详情",
+    "he": "צפה בפרטים",
+    "ar": "عرض التفاصيل",
+    "az": "Detallara Bax"
   },
   
   "viewall": {
-    "en":       "View All Products",
-    "tr":       "Tüm Ürünleri Görüntüle",
-    "ru":       "Посмотреть все продукты",
-    "zhcn":     "查看所有产品"
-
+    "en": "View All Products",
+    "tr": "Tüm Ürünleri Görüntüle",
+    "ru": "Посмотреть все продукты",
+    "zhcn": "查看所有产品",
+    "he": "צפה בכל המוצרים",
+    "ar": "عرض جميع المنتجات",
+    "az": "Bütün Məhsulları Bax"
   }
-  
 }

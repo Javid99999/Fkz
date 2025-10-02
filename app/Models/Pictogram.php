@@ -10,6 +10,10 @@ class Pictogram extends Model
     use HasTranslations;
 
 
+    protected $translatable = [
+        'name'
+    ];
+    
     protected $fillable = [
         'name',
         'code',
@@ -18,9 +22,7 @@ class Pictogram extends Model
 
 
 
-    protected $translatable = [
-        'name'
-    ];
+    
 
 
 

@@ -1,0 +1,51 @@
+{
+
+    "companySnapshot":{
+        "en": "Company Snapshot",
+        "tr": "Şirket Özeti",
+        "ru": "Краткая справка о компании",
+        "zhcn": "公司概览",
+        "he": "תמונת מצב החברה",
+        "ar": "لمحة عن الشركة",
+        "az": "Şirkət icmalı"
+    },
+    "oneExampleEach":{
+        "en": "One example each from our expertise, facilities, and certifications",
+        "tr": "Uzmanlığımızdan, tesislerimizden ve sertifikalarımızdan birer örnek",
+        "ru": "По одному примеру из нашей экспертизы, объектов и сертификатов",
+        "zhcn": "来自我们专业知识、设施和认证的各一个示例",
+        "he": "דוגמה אחת מההתמחות שלנו, מהמתקנים שלנו ומהאישורים שלנו",
+        "ar": "مثال واحد من خبراتنا ومنشآتنا وشهاداتنا",
+        "az": "Mütəxəssisliyimizdən, müəssisələrimizdən və sertifikatlarımızdan bir nümunə"
+    },
+    "expertise":{
+        "en": "Expertise",
+        "tr": "Uzmanlık",
+        "ru": "Экспертиза",
+        "zhcn": "专业知识",
+        "he": "התמחות",
+        "ar": "الخبرة",
+        "az": "Mütəxəssislik"
+    },
+    "facilities":{
+        "en": "Facilities",
+        "tr": "İmkanlar",
+        "ru": "Возможности",
+        "zhcn": "设施",
+        "he": "יכולות",
+        "ar": "الإمكانات",
+        "az": "İmkanlar"
+    },
+    "certifications":{
+        "en": "Certifications",
+        "tr": "Sertifikalar",
+        "ru": "Сертификаты",
+        "zhcn": "认证",
+        "he": "תעודות הסמכה",
+        "ar": "الشهادات",
+        "az": "Sertifikatlar"
+    }
+
+
+
+}
