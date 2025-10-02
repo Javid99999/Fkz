@@ -17,7 +17,7 @@ import { useLang } from "../ContextHelper/LanguageContext";
 export default function Product() {
   const { products, category, selectedCategory } = usePage<ProductPageProps>().props;
 
-  const [, setActiveCategory] = useState<number | undefined>(selectedCategory);
+  const [activeCategory, setActiveCategory] = useState<number | undefined>(selectedCategory);
   const [openParentId, setOpenParentId] = useRemember<number | null>(null, 'product-accordion');
   const [searchTerm, setSearchTerm] = useRemember('', 'product-search');
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function Product() {
     setActiveCategory(categoryId);
 
     
-    const query: Record<string, any> = { category_id: categoryId };
+    const query: Record<string, string | number> = { category_id: categoryId };
     if(searchTerm.trim() !== "") query.search = searchTerm; // search varsa ekle
 
     router.visit(route('products.index'), {
@@ -165,7 +165,9 @@ export default function Product() {
                           onClick={() => toggleChildren(cat.id)}
                         >
                           {openParentId === cat.id ? <ChevronDown /> : <ChevronRight />}
-                          <div className="font-bold text-md">{cat.name[lang] ?? cat.name.en}</div>
+                          <div className={`font-bold text-md ${
+                            activeCategory === cat.id ? 'text-primary' : 'text-foreground'
+                          }`}>{cat.name[lang] ?? cat.name.en}</div>
                         </button>
                         <div
                           className={`ml-8 mt-2 mb-1 overflow-hidden transition-all duration-300 ${

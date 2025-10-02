@@ -31,7 +31,7 @@ const AppNavbarLayout = ({ children }: Props) => {
   const [darkMode, setDarkMode] = useState(false);
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { lang, setLang } = useLang();
-  const [activeMenu, setActiveMenu] = useState<string>('');
+  
   
 
   useEffect(() => {
@@ -58,7 +58,7 @@ const AppNavbarLayout = ({ children }: Props) => {
   const linkClass = (path: string) =>
   clsx(
     'text-sm font-medium font-bold transition-colors duration-200',
-    (currentPath.includes(path) || activeMenu === path)
+    currentPath.includes(path)
       ? 'text-primary font-bold underline decoration-primary decoration-3 underline-offset-30'
       : 'hover:text-[var(--mouseon)] text-primary hover:shadow-[0_4px_6px_rgba(0,0,0,0.3)] transition-shadow duration-200 p-1 rounded-lg'
   );

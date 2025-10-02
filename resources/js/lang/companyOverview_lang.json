@@ -44,6 +44,15 @@
         "he": "תעודות הסמכה",
         "ar": "الشهادات",
         "az": "Sertifikatlar"
+    },
+    "noDesc":{
+        "en": "No description",
+        "tr": "Açıklama yok",
+        "ru": "Описание отсутствует",
+        "zhcn": "无描述",
+        "he": "אין תיאור",
+        "ar": "لا يوجد وصف",
+        "az": "Açıqlama yoxdur"
     }
 
 

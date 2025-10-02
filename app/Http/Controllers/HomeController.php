@@ -26,11 +26,15 @@ class HomeController extends Controller
 
         $tab = $request->get('tab', 'expertise');
 
+        $expertise = Experrtise::with('media')->first();
+        $facility = Facility::with('media')->first();
+        $certification = Certification::with('media')->first();
+
         $data = match ($tab) {
-        'expertise' => new ExpertiseResource(Experrtise::with('media')->first()),
-        'facilities' => new FacilityRecource(Facility::with('media')->first()),
-        'certifications' => new CertificationResource(Certification::with('media')->first()),
-        default => new ExpertiseResource(Experrtise::with('media')->first()),
+        'expertise' => $expertise ? new ExpertiseResource($expertise) : null,
+        'facilities' => $facility ? new FacilityRecource($facility) : null,
+        'certifications' => $certification ? new CertificationResource($certification) : null,
+        default => $expertise ? new ExpertiseResource($expertise) : null,
     };
 
 
