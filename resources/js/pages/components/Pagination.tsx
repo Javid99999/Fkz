@@ -20,7 +20,10 @@ interface PaginationMeta {
 interface Props {
   links: PaginationLinks;
   meta: PaginationMeta;
-  query?: Record<string, any>; // ✅ query prop
+  query?: {
+    category_id?: number | string;
+    search?: string;
+  }
 }
 
 const Pagination: React.FC<Props> = ({ links, meta, query = {} }) => {

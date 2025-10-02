@@ -10,7 +10,7 @@ interface CompanyOverviewProps {
       name?: string;
       description?: string;
       img_url?: string;
-    }
+    } | null
   };
   onTabChange: (newTab: string) => void;
 }

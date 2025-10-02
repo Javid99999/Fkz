@@ -10,21 +10,26 @@ import { BasicProductInfo } from "@/types";
 import { useRef } from "react";
 
 
+export interface OverviewData {
+  name: string;
+  description: string;
+  img_url: string;
+}
+
 export interface PageProps {
   tab: string
   overview: {
-    data: {
-      name: string
-      description: string
-      img_url: string
-    }
+    data: OverviewData | null
   }
-  [key: string]: any
+  products: BasicProductInfo[];
+  [key: string]: unknown;
 }
 
-const Home = ({ products }: { products: BasicProductInfo[] }) => {
+const Home = () => {
+  const { tab, overview, products } = usePage<PageProps>().props;
 
-  const { tab, overview } = usePage<PageProps>().props
+  
+  // const { tab, overview } = usePage<PageProps>().props
 
   const handleTabChange = (newTab: string) => {
     router.visit(route('home', { tab: newTab }), {
